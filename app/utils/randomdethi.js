@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-export const getRndIntegerB2 = () =>
+const getRndIntegerB2 = () =>
   _.concat(
     _.sampleSize(_.range(1, 16), 1),
     _.sampleSize(_.range(17, 21), 2),
@@ -13,7 +13,7 @@ export const getRndIntegerB2 = () =>
     _.sampleSize(_.range(487, 600), 10),
   );
 
-export const getRndIntegerB1 = () => {
+const getRndIntegerB1 = () => {
   var examQuestions = [];
   examQuestions = _.concat(
     _.sampleSize(_.range(1, 16), 1),
@@ -28,7 +28,7 @@ export const getRndIntegerB1 = () => {
 
   return examQuestions;
 };
-export const getRndIntegerC = () => {
+const getRndIntegerC = () => {
   var examQuestions = [];
   examQuestions = _.concat(
     _.sampleSize(_.range(1, 16), 1),
@@ -44,7 +44,7 @@ export const getRndIntegerC = () => {
 
   return examQuestions;
 };
-export const getRndIntegerDEF = () => {
+const getRndIntegerDEF = () => {
   var examQuestions = [];
   examQuestions = _.concat(
     _.sampleSize(_.range(1, 16), 1),
@@ -60,7 +60,7 @@ export const getRndIntegerDEF = () => {
 
   return examQuestions;
 };
-export const getRndIntegerA = () => {
+const getRndIntegerA = () => {
   var examQuestions = [];
   examQuestions = _.concat(
     _.sampleSize(_.range(1, 16), 1),
@@ -75,4 +75,12 @@ export const getRndIntegerA = () => {
   );
 
   return examQuestions;
+};
+
+export {
+  getRndIntegerB2,
+  getRndIntegerB1,
+  getRndIntegerC,
+  getRndIntegerDEF,
+  getRndIntegerA,
 };

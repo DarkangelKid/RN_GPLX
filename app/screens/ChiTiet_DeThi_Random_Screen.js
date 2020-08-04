@@ -28,6 +28,14 @@ import license from '../data/license.json';
 
 import Item_ChiTiet from '../components/Item_ChiTiet';
 
+import {
+  getRndIntegerA,
+  getRndIntegerB1,
+  getRndIntegerB2,
+  getRndIntegerC,
+  getRndIntegerDEF,
+} from '../utils/randomdethi';
+
 const win = Dimensions.get('window');
 
 const _renderTimer = (props) => {
@@ -100,24 +108,18 @@ const Setting_Screen = () => {
   let Exam = realm.objects('Exam');
   let ExamDetail = realm.objects('ExamDetail');
 
+  const check_license = useSelector((state) => state.global.check_license);
   const navigation = useNavigation();
   const tabView = useRef();
-  const route = useRoute();
-  const {item} = route.params;
-  const exam_id = item.id;
 
-  let question_time = license[item.license_id - 1].question_time / 1000;
-
-  let question_require = license[item.license_id - 1].question_require;
-
-  //question_time = 10;
+  let question_time = license[check_license].question_time / 1000;
+  let question_require = license[check_license].question_require;
 
   const [datadapan, setDatadapan] = useState([]);
   const [data, setData] = useState([]);
   const [checkKetThuc, setCheckKetThuc] = useState(false);
 
   const [checkshow, setCheckshow] = useState(false);
-  const check_license = useSelector((state) => state.global.check_license);
 
   const gotoKetQuaPage = (time) => {
     let time_tmp = (question_time - time) * 1000;
@@ -133,28 +135,21 @@ const Setting_Screen = () => {
           right_required = false;
         }
       } else if (i.selected_answer === i.right_answer) {
-        rights_count++;
         realm.write(() => {
           let question_item = Question.filtered('id = ' + i.id)[0];
           question_item.rights_count = question_item.rights_count + 1;
         });
+        rights_count++;
       } else {
-        wrongs_count++;
-        if (i.right_required === 1) {
-          right_required = false;
-        }
         realm.write(() => {
           let question_item = Question.filtered('id = ' + i.id)[0];
           question_item.wrongs_count = question_item.wrongs_count + 1;
         });
+        wrongs_count++;
+        if (i.right_required === 1) {
+          right_required = false;
+        }
       }
-
-      realm.write(() => {
-        let example_detail_tmp = ExamDetail.filtered(
-          'question.id = ' + i.id,
-        )[0];
-        example_detail_tmp.selected_answer = i.selected_answer;
-      });
     });
 
     //Status
@@ -162,25 +157,21 @@ const Setting_Screen = () => {
     //2 Khong dat, sai nhieu cau
     //3 Dat
 
-    realm.write(() => {
-      let examp_tmp = Exam.filtered('id = ' + exam_id)[0];
-      examp_tmp.rights_count = rights_count;
-      examp_tmp.wrongs_count = wrongs_count;
-      examp_tmp.no_answers_count = no_answers_count;
-      examp_tmp.totalTime = time_tmp;
-      if (!right_required) {
-        examp_tmp.status = 1;
-      } else {
-        if (rights_count < question_require) {
-          examp_tmp.status = 2;
-        } else {
-          examp_tmp.status = 3;
-        }
-      }
-    });
+    let status = 0;
 
-    navigation.navigate('KetQua_DeThi_Screen', {
-      exam_id: exam_id,
+    if (!right_required) {
+      status = 1;
+    } else {
+      if (rights_count < question_require) {
+        status = 2;
+      } else {
+        status = 3;
+      }
+    }
+
+    navigation.navigate('KetQua_DeThi_Random_Screen', {
+      datadapan: datadapan,
+      time_tmp: time_tmp,
     });
   };
 
@@ -231,25 +222,47 @@ const Setting_Screen = () => {
     return () => backHandler.remove();
   }, []);
 
+  const [arrDethi, setArrDethi] = useState([]);
+
+  useEffect(() => {
+    if (check_license < 4) {
+      setArrDethi(getRndIntegerA());
+    } else if (check_license === 4) {
+      setArrDethi(getRndIntegerB1());
+    } else if (check_license === 5) {
+      setArrDethi(getRndIntegerB2());
+    } else if (check_license === 5) {
+      setArrDethi(getRndIntegerC());
+    } else {
+      setArrDethi(getRndIntegerDEF());
+    }
+
+    return () => {
+      setArrDethi([]);
+    };
+  }, [check_license]);
+
   useEffect(() => {
     let tmp = [];
     let tmp_dapan = [];
-    item.exam_details.map((j, index) => {
-      j.question.selected_answer = 0;
+    arrDethi.map((i) => {
+      let question_item = Question.filtered('id = ' + i)[0];
       let dapan = {
-        right_answer: j.question.right_answer,
-        right_required: j.question.right_required,
-        id: j.question.id,
+        right_answer: question_item.right_answer,
+        right_required: question_item.right_required,
+        id: question_item.id,
         selected_answer: 0,
       };
       tmp_dapan.push(dapan);
-      tmp.push(j.question);
+      tmp.push(question_item);
     });
     setDatadapan(tmp_dapan);
     setData(tmp);
-    return () => {};
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => {
+      setDatadapan([]);
+      setData([]);
+    };
+  }, [arrDethi]);
 
   useEffect(() => {
     StatusBar.setBarStyle('light-content');
@@ -279,7 +292,7 @@ const Setting_Screen = () => {
         statusBarProps={{barStyle: 'light-content'}}
         barStyle="light-content"
         centerComponent={{
-          text: item.exam_no ? `Đề thi số ${item.exam_no}` : 'Đề thi',
+          text: 'Đề thi ngẫu nhiên',
           style: {color: '#fff', fontSize: 20, fontWeight: 'bold'},
         }}
         containerStyle={{
@@ -289,7 +302,7 @@ const Setting_Screen = () => {
         centerContainerStyle={{}}
         leftComponent={
           <Icon
-            //onPress={() => navigation.goBack()}
+            // onPress={() => navigation.goBack()}
             onPress={() => {
               kethucBaiThi();
             }}

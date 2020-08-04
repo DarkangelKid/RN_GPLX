@@ -52,7 +52,7 @@ const _renderCheckbox = (props) => {
 };
 
 const Item_ChiTiet = (props) => {
-  const {item, checkDapAn} = props;
+  const {item, checkDapAn, showButton} = props;
 
   const [checkQuestion, setCheckQuestion] = useState(0);
   const right_answer = item.right_answer;
@@ -156,7 +156,7 @@ const Item_ChiTiet = (props) => {
         </View>
       )}
       <View style={{flex: 1}} />
-      {checkQuestion > 0 && (
+      {(checkQuestion > 0 || showButton) && (
         <View style={{flexDirection: 'row'}}>
           <View style={{flex: 1}} />
           <Button

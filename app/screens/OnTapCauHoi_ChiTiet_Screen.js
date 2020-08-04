@@ -11,6 +11,7 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
+  FlatList,
 } from 'react-native';
 import {Header} from 'react-native-elements';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -22,6 +23,7 @@ import ScrollableTabView, {
 import realm from '../utils/realm';
 
 import Item_ChiTiet_KetQua from '../components/Item_ChiTiet_KetQua';
+import Item_ChiTiet from '../components/Item_ChiTiet';
 
 const win = Dimensions.get('window');
 
@@ -131,11 +133,13 @@ const Setting_Screen = () => {
             tabBarInactiveTextColor={'#757575'}
             tabBarUnderlineStyle={{backgroundColor: '#3D6DCC', height: 1}}>
             {data.map((i, index) => (
-              <Item_ChiTiet_KetQua
+              <Item_ChiTiet
                 style={styles.tabView}
                 tabLabel={'Câu ' + (index + 1)}
                 key={`${index}`}
                 item={i}
+                checkDapAn={() => {}}
+                showButton={true}
               />
             ))}
           </ScrollableTabView>
@@ -172,40 +176,41 @@ const Setting_Screen = () => {
           </TouchableOpacity>
           {checkshow && (
             <View style={{height: 300, padding: 5}}>
-              <ScrollView>
-                <View
-                  style={{
-                    flex: 1,
-                    flexDirection: 'row',
-                    justifyContent: 'flex-start',
-                    flexWrap: 'wrap',
-                    backgroundColor: '#eceff1',
-                  }}>
-                  {data.map((i, index) => (
-                    <TouchableOpacity
-                      onPress={() => {
-                        tabView.current.goToPage(index);
-                        setCheckshow(false);
-                      }}
-                      style={{
-                        backgroundColor: 'white',
-                        width: (win.width - 10) / 4 - 4,
-                        height: 40,
-                        borderWidth: 0.3,
-                        borderColor: '#cfd8dc',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        margin: 2,
-                      }}
-                      key={`${index}-menuitem`}>
-                      <Text
-                        style={{fontWeight: 'bold', color: '#37474f'}}>{`Câu ${
-                        index + 1
-                      }`}</Text>
-                    </TouchableOpacity>
-                  ))}
-                </View>
-              </ScrollView>
+              <FlatList
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                  flexGrow: 1,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+                horizontal={false}
+                numColumns={4}
+                data={data}
+                renderItem={({item, index}) => (
+                  <TouchableOpacity
+                    onPress={() => {
+                      tabView.current.goToPage(index);
+                      setCheckshow(false);
+                    }}
+                    style={{
+                      backgroundColor: 'white',
+                      width: (win.width - 10) / 4 - 4,
+                      height: 40,
+                      borderWidth: 0.3,
+                      borderColor: '#cfd8dc',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      margin: 2,
+                    }}
+                    key={`${index}-menuitem`}>
+                    <Text
+                      style={{fontWeight: 'bold', color: '#37474f'}}>{`Câu ${
+                      index + 1
+                    }`}</Text>
+                  </TouchableOpacity>
+                )}
+                keyExtractor={(item, index) => index.toString()}
+              />
             </View>
           )}
         </>

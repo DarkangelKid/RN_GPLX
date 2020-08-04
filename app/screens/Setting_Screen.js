@@ -1,15 +1,26 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {StyleSheet, ScrollView, View, TouchableOpacity, Text, StatusBar, Platform} from 'react-native';
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  TouchableOpacity,
+  Text,
+  StatusBar,
+  Platform,
+} from 'react-native';
 import {Header} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
 import license from '../data/license.json';
+import realm from '../utils/realm';
+import {actions} from '../redux/GLOBALRedux';
 
 const Setting_Screen = () => {
   const navigation = useNavigation();
   const check_license = useSelector((state) => state.global.check_license);
+  const dispatch = useDispatch();
 
   let textBangLai = 'Bằng ';
   if (check_license > -1) {
@@ -26,6 +37,18 @@ const Setting_Screen = () => {
 
     return () => {};
   }, []);
+
+  const lammoidiemthi = () => {
+    let Question = realm.objects('Question');
+    let Exam = realm.objects('Exam');
+    let ExamDetail = realm.objects('ExamDetail');
+    realm.write(() => {
+      realm.delete(Exam);
+      realm.delete(ExamDetail);
+      realm.delete(Question);
+    });
+    dispatch(actions.isLoadData(false));
+  };
 
   return (
     <View>
@@ -54,7 +77,10 @@ const Setting_Screen = () => {
         }
       />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <TouchableOpacity style={styles.item} activeOpacity={0.6} onPress={() => navigation.navigate('LuaChonBangLai_Screen')}>
+        <TouchableOpacity
+          style={styles.item}
+          activeOpacity={0.6}
+          onPress={() => navigation.navigate('LuaChonBangLai_Screen')}>
           <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
             <View style={{marginHorizontal: 15}}>
               <Icon name="cogs" size={24} color="#FFAB00" />
@@ -73,34 +99,52 @@ const Setting_Screen = () => {
               </Text>
             </View>
           </View>
-          <Icon name="chevron-right" size={16} color="#52575D" style={{marginEnd: 10}} />
+          <Icon
+            name="chevron-right"
+            size={16}
+            color="#52575D"
+            style={{marginEnd: 10}}
+          />
         </TouchableOpacity>
 
-        <TouchableOpacity
+        {/*         <TouchableOpacity
           style={styles.item}
           activeOpacity={0.6}
-          onPress={() => navigation.navigate('SETTING_TrungTamTroGiup_Screen')}>
+          onPress={() => {
+            lammoidiemthi();
+          }}>
           <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
             <View style={{marginHorizontal: 15}}>
               <Icon name="sync-alt" size={24} color="#512da8" />
             </View>
             <Text style={styles.text_title}>Làm mới điểm thi</Text>
           </View>
-          <Icon name="chevron-right" size={16} color="#52575D" style={{marginEnd: 10}} />
-        </TouchableOpacity>
+          <Icon
+            name="chevron-right"
+            size={16}
+            color="#52575D"
+            style={{marginEnd: 10}}
+          />
+        </TouchableOpacity> */}
 
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={styles.item}
           activeOpacity={0.6}
-          onPress={() => navigation.navigate('SETTING_ThongTinUngDung_Screen')}>
+          //onPress={() => navigation.navigate('SETTING_ThongTinUngDung_Screen')}
+        >
           <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
             <View style={{marginHorizontal: 15}}>
               <Icon name="envelope" size={24} color="#707864" />
             </View>
             <Text style={styles.text_title}>Gửi mail đến nhà phát triển</Text>
           </View>
-          <Icon name="chevron-right" size={16} color="#52575D" style={{marginEnd: 10}} />
-        </TouchableOpacity>
+          <Icon
+            name="chevron-right"
+            size={16}
+            color="#52575D"
+            style={{marginEnd: 10}}
+          />
+        </TouchableOpacity> */}
       </ScrollView>
     </View>
   );

@@ -101,8 +101,7 @@ const Home_Screen = () => {
               },
               styles.containerMenu,
             ]}
-            //onPress={() => navigation.navigate('Setting_Screen')}
-          >
+            onPress={() => navigation.navigate('ChiTiet_DeThi_Random_Screen')}>
             <Icon
               size={42}
               name="random"

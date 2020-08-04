@@ -24,6 +24,8 @@ import DanhSachDeThi_Screen from '../screens/DanhSachDeThi_Screen';
 import ChiTiet_DeThi_Screen from '../screens/ChiTiet_DeThi_Screen';
 import KetQua_DeThi_Screen from '../screens/KetQua_DeThi_Screen';
 import TopCauSai_Screen from '../screens/TopCauSai_Screen';
+import KetQua_DeThi_Random_Screen from '../screens/KetQua_DeThi_Random_Screen';
+import ChiTiet_DeThi_Random_Screen from '../screens/ChiTiet_DeThi_Random_Screen';
 
 import questions from '../data/questions.json';
 import exams from '../data/exams.json';
@@ -261,6 +263,20 @@ const RootContainerScreen = () => {
         <Stack.Screen
           name="TopCauSai_Screen"
           component={TopCauSai_Screen}
+          options={{
+            animationEnabled: true,
+          }}
+        />
+        <Stack.Screen
+          name="ChiTiet_DeThi_Random_Screen"
+          component={ChiTiet_DeThi_Random_Screen}
+          options={{
+            animationEnabled: true,
+          }}
+        />
+        <Stack.Screen
+          name="KetQua_DeThi_Random_Screen"
+          component={KetQua_DeThi_Random_Screen}
           options={{
             animationEnabled: true,
           }}

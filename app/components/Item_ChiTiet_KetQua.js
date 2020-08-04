@@ -1,6 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {Text, View, Platform, Image, Dimensions} from 'react-native';
+import {
+  Text,
+  View,
+  Platform,
+  Image,
+  Dimensions,
+  ScrollView,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
 import {CheckBox, Divider} from 'react-native-elements';
 const win = Dimensions.get('window');
@@ -16,7 +23,7 @@ const Item_ChiTiet_KetQua = (props) => {
       : {uri: item.image_file};
 
   return (
-    <View
+    <ScrollView
       style={{
         padding: 5,
         borderBottomColor: '#c8e6c9',
@@ -153,7 +160,7 @@ const Item_ChiTiet_KetQua = (props) => {
           </Text>
         </View>
       )}
-    </View>
+    </ScrollView>
   );
 };
 
