@@ -1,12 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {View, Image, StatusBar, StyleSheet, Dimensions, Text} from 'react-native';
+import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {actions} from '../redux/GLOBALRedux';
-import _ from 'lodash';
-import moment from 'moment';
 
 const Stack = createStackNavigator();
 
@@ -33,9 +31,13 @@ import realm from '../utils/realm';
 
 const SplashScreen = () => {
   return (
-    <View style={styles.container}>
-      <StatusBar backgroundColor="#00000000" barStyle="light-content" translucent={true} />
-      <Text>Ôn thi giấy phép lái xe</Text>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignContent: 'center',
+      }}>
+      <ActivityIndicator size="large" color="#fb8c00" />
     </View>
   );
 };
@@ -43,11 +45,6 @@ const SplashScreen = () => {
 const RootContainerScreen = () => {
   const dispatch = useDispatch();
 
-  console.log('aaba');
-
-  const [isLoading, setIsLoading] = useState(true);
-
-  const initapp = useSelector((state) => state.global.initapp);
   const loaddata = useSelector((state) => state.global.loaddata);
   const check_license = useSelector((state) => state.global.check_license);
 
@@ -164,7 +161,11 @@ const RootContainerScreen = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode={'none'} initialRouteName={check_license > -1 ? 'Home_Screen' : 'LuaChonBangLai_Screen'}>
+      <Stack.Navigator
+        headerMode={'none'}
+        initialRouteName={
+          check_license > -1 ? 'Home_Screen' : 'LuaChonBangLai_Screen'
+        }>
         <Stack.Screen
           name="Home_Screen"
           component={Home_Screen}
@@ -256,7 +257,6 @@ const RootContainerScreen = () => {
             animationEnabled: true,
           }}
         />
-
       </Stack.Navigator>
     </NavigationContainer>
   );

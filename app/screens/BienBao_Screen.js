@@ -1,17 +1,29 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {StyleSheet, FlatList, View, TouchableOpacity, Text, StatusBar, Platform, Image} from 'react-native';
+import {
+  StyleSheet,
+  FlatList,
+  View,
+  Text,
+  StatusBar,
+  Platform,
+  Image,
+} from 'react-native';
 import {Header} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
 import signs from '../data/signs.json';
-import ScrollableTabView, {ScrollableTabBar} from '../modules/react-native-scrollable-tab-view';
+import ScrollableTabView, {
+  ScrollableTabBar,
+} from '../modules/react-native-scrollable-tab-view';
 
 const _renderItem = (props) => {
   const {item} = props;
 
-  let image = Platform.OS === 'android' ? {uri: 'asset:/signs/sign' + item.image_file + '.png'} : {uri: 'sign' + item.image_file};
+  let image =
+    Platform.OS === 'android'
+      ? {uri: 'asset:/signs/sign' + item.image_file + '.png'}
+      : {uri: 'sign' + item.image_file};
   return (
     <View
       style={{
@@ -22,11 +34,16 @@ const _renderItem = (props) => {
         flexDirection: 'row',
         alignItems: 'center',
       }}>
-      {/*  <Image source={image} style={{width: 100, height: 100}} /> */}
-      <Image source={image} style={{width: 100, height: 100}} resizeMode={'contain'} />
+      <Image
+        source={image}
+        style={{width: 100, height: 100}}
+        resizeMode={'contain'}
+      />
 
       <View style={{padding: 10, flex: 1}}>
-        <Text style={{color: '#4527a0', fontWeight: 'bold', marginEnd: 5}}>{item.ten}</Text>
+        <Text style={{color: '#4527a0', fontWeight: 'bold', marginEnd: 5}}>
+          {item.ten}
+        </Text>
         <Text style={{fontWeight: 'bold', marginEnd: 5}}>{item.bienbao}</Text>
         <Text style={{color: '#004d40', marginEnd: 5}}>{item.content}</Text>
       </View>
@@ -97,11 +114,31 @@ const Setting_Screen = () => {
         tabBarActiveTextColor="#3D6DCC"
         tabBarInactiveTextColor={'#757575'}
         tabBarUnderlineStyle={{backgroundColor: '#3D6DCC', height: 1}}>
-        <_renderTab style={styles.tabView} data={signs.bienbaocam} tabLabel={'BIỂN BÁO CẤM'} />
-        <_renderTab style={styles.tabView} data={signs.bienbaonguyhiem} tabLabel={'BIỂN BÁO NGUY HIỂM'} />
-        <_renderTab style={styles.tabView} data={signs.bienbaohieulenh} tabLabel={'BIỂN BÁO HIỆU LỆNH'} />
-        <_renderTab style={styles.tabView} data={signs.bienbaochidan} tabLabel={'BIỂN BÁO CHỈ DẪN'} />
-        <_renderTab style={styles.tabView} data={signs.bienbaophu} tabLabel={'BIỂN BÁO PHỤ'} />
+        <_renderTab
+          style={styles.tabView}
+          data={signs.bienbaocam}
+          tabLabel={'BIỂN BÁO CẤM'}
+        />
+        <_renderTab
+          style={styles.tabView}
+          data={signs.bienbaonguyhiem}
+          tabLabel={'BIỂN BÁO NGUY HIỂM'}
+        />
+        <_renderTab
+          style={styles.tabView}
+          data={signs.bienbaohieulenh}
+          tabLabel={'BIỂN BÁO HIỆU LỆNH'}
+        />
+        <_renderTab
+          style={styles.tabView}
+          data={signs.bienbaochidan}
+          tabLabel={'BIỂN BÁO CHỈ DẪN'}
+        />
+        <_renderTab
+          style={styles.tabView}
+          data={signs.bienbaophu}
+          tabLabel={'BIỂN BÁO PHỤ'}
+        />
       </ScrollableTabView>
     </View>
   );

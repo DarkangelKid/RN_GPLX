@@ -1,7 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {StyleSheet, View, TouchableOpacity, FlatList, StatusBar, Platform, Text} from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  FlatList,
+  StatusBar,
+  Platform,
+  Text,
+} from 'react-native';
 import {Header} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
@@ -27,10 +34,16 @@ const _renderItem = (props) => {
         handlePress(index);
       }}>
       <View style={{marginEnd: 15}}>
-        <Icon name={index < 4 ? 'motorcycle' : 'car'} size={20} color="#7cb342" />
+        <Icon
+          name={index < 4 ? 'motorcycle' : 'car'}
+          size={20}
+          color="#7cb342"
+        />
       </View>
       <View>
-        <Text style={{color: '#565656', fontWeight: 'bold'}}>Bằng {item.text}</Text>
+        <Text style={{color: '#565656', fontWeight: 'bold'}}>
+          Bằng {item.text}
+        </Text>
         <Text
           style={{
             fontSize: 13,
@@ -60,7 +73,6 @@ const Setting_Screen = () => {
     return () => {};
   }, []);
 
-  //console.log(license);
   const handlePress = (i) => {
     dispatch(actions.setLicense(i));
     navigation.navigate('Home_Screen');
@@ -81,23 +93,18 @@ const Setting_Screen = () => {
           justifyContent: 'space-around',
         }}
         centerContainerStyle={{}}
-        /* leftComponent={
-          <Icon
-            onPress={() => navigation.goBack()}
-            name="long-arrow-left"
-            color="white"
-            underlayColor="#00000000"
-            size={22}
-            style={{padding: 10}}
-          />
-        } */
       />
       <FlatList
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{flexGrow: 1}}
         data={license}
         renderItem={({item, index}) => (
-          <_renderItem item={item} handlePress={handlePress} check_license={check_license} index={index} />
+          <_renderItem
+            item={item}
+            handlePress={handlePress}
+            check_license={check_license}
+            index={index}
+          />
         )}
         keyExtractor={(item, index) => index.toString()}
       />
@@ -106,22 +113,3 @@ const Setting_Screen = () => {
 };
 
 export default Setting_Screen;
-
-const styles = StyleSheet.create({
-  text: {
-    color: '#52575D',
-  },
-  item: {
-    height: 60,
-    marginVertical: 2,
-    backgroundColor: 'white',
-    borderRadius: 5,
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  text_title: {
-    fontWeight: '600',
-    fontSize: 15,
-    color: '#363747',
-  },
-});

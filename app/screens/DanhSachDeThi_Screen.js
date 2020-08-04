@@ -1,7 +1,15 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {StyleSheet, ScrollView, View, Text, StatusBar, Pressable, Platform, Dimensions} from 'react-native';
+import {useSelector} from 'react-redux';
+import {
+  ScrollView,
+  View,
+  Text,
+  StatusBar,
+  Pressable,
+  Platform,
+  Dimensions,
+} from 'react-native';
 import {Header} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
@@ -95,7 +103,11 @@ const Screen = () => {
               }}
               style={({pressed}) => [
                 {
-                  backgroundColor: pressed ? '#c8e6c9' : i.status > 0 ? '#c8e6c9' : '#FFF',
+                  backgroundColor: pressed
+                    ? '#c8e6c9'
+                    : i.status > 0
+                    ? '#c8e6c9'
+                    : '#FFF',
                 },
                 {
                   width: (win.width - 10) / 3 - 4,
@@ -113,21 +125,44 @@ const Screen = () => {
               }}
               key={`${index}-menuitem`}>
               <Text style={{color: '#37474f'}}>{'Đề thi số'}</Text>
-              <Text style={{fontWeight: 'bold', color: '#37474f', fontSize: 20, margin: 10}}>{` ${i.exam_no}`}</Text>
+              <Text
+                style={{
+                  fontWeight: 'bold',
+                  color: '#37474f',
+                  fontSize: 20,
+                  margin: 10,
+                }}>{` ${i.exam_no}`}</Text>
 
               <View style={{flex: 1}}>
                 {i.status > 0 && (
                   <>
                     <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                      <View style={{flexDirection: 'row', alignItems: 'center', margin: 6}}>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                          margin: 6,
+                        }}>
                         <Icon name={'check-circle'} color="#607d8b" size={18} />
                         <Text style={{marginStart: 2}}>{i.rights_count}</Text>
                       </View>
-                      <View style={{flexDirection: 'row', alignItems: 'center', margin: 6}}>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                          margin: 6,
+                        }}>
                         <Icon name={'stop-circle'} color="#c62828" size={18} />
-                        <Text style={{marginStart: 2}}>{i.no_answers_count}</Text>
+                        <Text style={{marginStart: 2}}>
+                          {i.no_answers_count}
+                        </Text>
                       </View>
-                      <View style={{flexDirection: 'row', alignItems: 'center', margin: 6}}>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                          margin: 6,
+                        }}>
                         <Icon name={'times-circle'} color="#c62828" size={18} />
                         <Text style={{marginStart: 2}}>{i.wrongs_count}</Text>
                       </View>

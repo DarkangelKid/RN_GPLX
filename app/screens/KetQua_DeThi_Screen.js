@@ -1,8 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
 
-import {StyleSheet, ScrollView, View, TouchableOpacity, Text, StatusBar, Platform, Pressable, Alert} from 'react-native';
+import {
+  ScrollView,
+  View,
+  Text,
+  StatusBar,
+  Platform,
+  BackHandler,
+} from 'react-native';
 import {Header} from 'react-native-elements';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
@@ -20,6 +26,19 @@ const Home_Screen = () => {
   const {exam_id} = route.params;
 
   const [exam, setExam] = useState(null);
+
+  useEffect(() => {
+    const backAction = () => {
+      navigation.navigate('Home_Screen');
+      return true;
+    };
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+
+    return () => backHandler.remove();
+  }, []);
 
   useEffect(() => {
     let examp_tmp = Exam.filtered('id = ' + exam_id)[0];
@@ -66,7 +85,13 @@ const Home_Screen = () => {
       {exam && (
         <ScrollView>
           <View style={{padding: 10}}>
-            <Text style={{textAlign: 'center', fontWeight: 'bold', color: 'red', fontSize: 20}}>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontWeight: 'bold',
+                color: 'red',
+                fontSize: 20,
+              }}>
               {exam.status === 0
                 ? 'Chưa thi'
                 : exam.status === 1
@@ -92,7 +117,10 @@ const Home_Screen = () => {
                   paddingVertical: 5,
                 }}>
                 <Icon name={'check-circle'} size={20} color="#607d8b" />
-                <Text style={{marginStart: 5, fontWeight: 'bold', fontSize: 18}}>{exam.rights_count}</Text>
+                <Text
+                  style={{marginStart: 5, fontWeight: 'bold', fontSize: 18}}>
+                  {exam.rights_count}
+                </Text>
               </View>
               <View
                 style={{
@@ -105,7 +133,10 @@ const Home_Screen = () => {
                   paddingVertical: 5,
                 }}>
                 <Icon name={'times-circle'} size={20} color="#c62828" />
-                <Text style={{marginStart: 5, fontWeight: 'bold', fontSize: 18}}>{exam.wrongs_count}</Text>
+                <Text
+                  style={{marginStart: 5, fontWeight: 'bold', fontSize: 18}}>
+                  {exam.wrongs_count}
+                </Text>
               </View>
               <View
                 style={{
@@ -118,7 +149,10 @@ const Home_Screen = () => {
                   paddingVertical: 5,
                 }}>
                 <Icon name={'exclamation-circle'} size={20} color="#c62828" />
-                <Text style={{marginStart: 5, fontWeight: 'bold', fontSize: 18}}>{exam.no_answers_count}</Text>
+                <Text
+                  style={{marginStart: 5, fontWeight: 'bold', fontSize: 18}}>
+                  {exam.no_answers_count}
+                </Text>
               </View>
             </View>
           </View>
@@ -129,19 +163,3 @@ const Home_Screen = () => {
 };
 
 export default Home_Screen;
-
-const styles = StyleSheet.create({
-  text: {
-    color: 'white',
-    fontSize: 18,
-    marginVertical: 10,
-  },
-  containerMenu: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-    margin: 5,
-  },
-  icon: {margin: 30},
-});

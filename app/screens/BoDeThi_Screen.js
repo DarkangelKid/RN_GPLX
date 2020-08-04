@@ -1,7 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {StyleSheet, FlatList, View, Text, StatusBar, Pressable, Platform} from 'react-native';
+import {
+  FlatList,
+  View,
+  Text,
+  StatusBar,
+  Pressable,
+  Platform,
+} from 'react-native';
 import {Header} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
@@ -126,7 +133,12 @@ const Setting_Screen = () => {
           contentContainerStyle={{flexGrow: 1}}
           data={data}
           renderItem={({item, index}) => (
-            <_renderItem item={item} handlePress={handlePress} check_license={check_license} index={index} />
+            <_renderItem
+              item={item}
+              handlePress={handlePress}
+              check_license={check_license}
+              index={index}
+            />
           )}
           keyExtractor={(item, index) => index.toString()}
         />

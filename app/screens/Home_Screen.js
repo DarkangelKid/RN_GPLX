@@ -1,8 +1,19 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 
-import {StyleSheet, ScrollView, View, TouchableOpacity, Text, StatusBar, Platform, Pressable, Alert} from 'react-native';
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  TouchableOpacity,
+  Text,
+  StatusBar,
+  Platform,
+  Pressable,
+  Alert,
+  BackHandler,
+} from 'react-native';
 import {Header} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
@@ -29,7 +40,7 @@ const Home_Screen = () => {
     return () => {};
   }, []);
 
-  /*   useEffect(() => {
+  useEffect(() => {
     const backAction = () => {
       Alert.alert('Thoát ứng dụng!', 'Bạn có muốn thoát ứng dụng?', [
         {
@@ -42,10 +53,13 @@ const Home_Screen = () => {
       return true;
     };
 
-    const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
 
     return () => backHandler.remove();
-  }, []); */
+  }, []);
 
   return (
     <View style={{flex: 1}}>
@@ -63,8 +77,15 @@ const Home_Screen = () => {
         }}
         centerContainerStyle={{}}
         rightComponent={
-          <TouchableOpacity onPress={() => navigation.navigate('Setting_Screen')}>
-            <Icon size={20} name="cog" color="white" underlayColor="#00000000" containerStyle={{}} />
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Setting_Screen')}>
+            <Icon
+              size={20}
+              name="cog"
+              color="white"
+              underlayColor="#00000000"
+              containerStyle={{}}
+            />
           </TouchableOpacity>
         }
       />
@@ -82,7 +103,13 @@ const Home_Screen = () => {
             ]}
             //onPress={() => navigation.navigate('Setting_Screen')}
           >
-            <Icon size={42} name="random" color="white" underlayColor="#00000000" style={styles.icon} />
+            <Icon
+              size={42}
+              name="random"
+              color="white"
+              underlayColor="#00000000"
+              style={styles.icon}
+            />
             <Text style={styles.text}>Đề ngẫu nhiên</Text>
           </Pressable>
           <Pressable
@@ -96,7 +123,13 @@ const Home_Screen = () => {
               styles.containerMenu,
             ]}
             onPress={() => navigation.navigate('DanhSachDeThi_Screen')}>
-            <Icon size={42} name="tasks" color="white" underlayColor="#00000000" style={styles.icon} />
+            <Icon
+              size={42}
+              name="tasks"
+              color="white"
+              underlayColor="#00000000"
+              style={styles.icon}
+            />
             <Text style={styles.text}>Thi theo bộ đề</Text>
           </Pressable>
         </View>
@@ -113,7 +146,13 @@ const Home_Screen = () => {
             ]}
             //onPress={() => navigation.navigate('Setting_Screen')}
           >
-            <Icon size={42} name="times-octagon" color="white" underlayColor="#00000000" style={styles.icon} />
+            <Icon
+              size={42}
+              name="times-octagon"
+              color="white"
+              underlayColor="#00000000"
+              style={styles.icon}
+            />
             <Text style={styles.text}>Xem câu bị sai</Text>
           </Pressable>
           <Pressable
@@ -127,7 +166,13 @@ const Home_Screen = () => {
               styles.containerMenu,
             ]}
             onPress={() => navigation.navigate('OnTapCauHoi_Screen')}>
-            <Icon size={42} name="books" color="white" underlayColor="#00000000" style={styles.icon} />
+            <Icon
+              size={42}
+              name="books"
+              color="white"
+              underlayColor="#00000000"
+              style={styles.icon}
+            />
             <Text style={styles.text}>Ôn tập câu hỏi</Text>
           </Pressable>
         </View>
@@ -143,7 +188,13 @@ const Home_Screen = () => {
               styles.containerMenu,
             ]}
             onPress={() => navigation.navigate('BienBao_Screen')}>
-            <Icon size={42} name="traffic-light-stop" color="white" underlayColor="#00000000" style={styles.icon} />
+            <Icon
+              size={42}
+              name="traffic-light-stop"
+              color="white"
+              underlayColor="#00000000"
+              style={styles.icon}
+            />
             <Text style={styles.text}>Các biển báo</Text>
           </Pressable>
           <Pressable
@@ -157,7 +208,13 @@ const Home_Screen = () => {
               styles.containerMenu,
             ]}
             onPress={() => navigation.navigate('OnDiemLiet_ChiTiet_Screen')}>
-            <Icon size={42} name="exclamation-triangle" color="white" underlayColor="#00000000" style={styles.icon} />
+            <Icon
+              size={42}
+              name="exclamation-triangle"
+              color="white"
+              underlayColor="#00000000"
+              style={styles.icon}
+            />
             <Text style={styles.text}>Câu điểm liệt</Text>
           </Pressable>
         </View>
@@ -173,7 +230,13 @@ const Home_Screen = () => {
               styles.containerMenu,
             ]}
             onPress={() => navigation.navigate('SaHinh_Screen')}>
-            <Icon size={42} name="steering-wheel" color="white" underlayColor="#00000000" style={styles.icon} />
+            <Icon
+              size={42}
+              name="steering-wheel"
+              color="white"
+              underlayColor="#00000000"
+              style={styles.icon}
+            />
             <Text style={styles.text}>Bài thi sa hình</Text>
           </Pressable>
           <Pressable
@@ -187,7 +250,13 @@ const Home_Screen = () => {
               styles.containerMenu,
             ]}
             onPress={() => navigation.navigate('MeoThi_Screen')}>
-            <Icon size={42} name="check-double" color="white" underlayColor="#00000000" style={styles.icon} />
+            <Icon
+              size={42}
+              name="check-double"
+              color="white"
+              underlayColor="#00000000"
+              style={styles.icon}
+            />
             <Text style={styles.text}>Mẹo thi</Text>
           </Pressable>
         </View>

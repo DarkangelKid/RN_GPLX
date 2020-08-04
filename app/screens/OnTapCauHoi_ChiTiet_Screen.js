@@ -16,7 +16,9 @@ import {
 import {Header} from 'react-native-elements';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
-import ScrollableTabView, {ScrollableTabBar} from '../modules/react-native-scrollable-tab-view';
+import ScrollableTabView, {
+  ScrollableTabBar,
+} from '../modules/react-native-scrollable-tab-view';
 
 import {CheckBox, Divider} from 'react-native-elements';
 
@@ -29,18 +31,48 @@ const _renderItem = (props) => {
   const [checkQuestion, setCheckQuestion] = useState(0);
   const right_answer = item.right_answer;
 
-  let image = Platform.OS === 'android' ? {uri: 'asset:/images/' + item.image_file} : {uri: item.image_file};
+  let image =
+    Platform.OS === 'android'
+      ? {uri: 'asset:/images/' + item.image_file}
+      : {uri: item.image_file};
 
   return (
-    <View style={{padding: 5, borderBottomColor: '#c8e6c9', borderBottomWidth: 0.3, flex: 1}}>
+    <View
+      style={{
+        padding: 5,
+        borderBottomColor: '#c8e6c9',
+        borderBottomWidth: 0.3,
+        flex: 1,
+      }}>
       <View style={{flexDirection: 'row', margin: 5, alignItems: 'center'}}>
-        {item.right_required > 0 && <Icon name="star" size={20} color="#2e7d32" style={{marginHorizontal: 5}} />}
-        <Text style={{fontWeight: 'bold', color: '#2e7d32', flex: 1}}>{item.content}</Text>
+        {item.right_required > 0 && (
+          <Icon
+            name="star"
+            size={20}
+            color="#2e7d32"
+            style={{marginHorizontal: 5}}
+          />
+        )}
+        <Text style={{fontWeight: 'bold', color: '#2e7d32', flex: 1}}>
+          {item.content}
+        </Text>
       </View>
 
-      {item.image_file.length > 2 && <Image source={image} style={{width: win.width - 10, height: 200}} resizeMode={'stretch'} />}
+      {item.image_file.length > 2 && (
+        <Image
+          source={image}
+          style={{width: win.width - 10, height: 200}}
+          resizeMode={'stretch'}
+        />
+      )}
 
-      <Divider style={{backgroundColor: '#3D6DCC', marginTop: 5, paddingHorizontal: 10}} />
+      <Divider
+        style={{
+          backgroundColor: '#3D6DCC',
+          marginTop: 5,
+          paddingHorizontal: 10,
+        }}
+      />
       <View style={{justifyContent: 'flex-start', marginBottom: 20}}>
         <CheckBox
           iconLeft
@@ -53,7 +85,10 @@ const _renderItem = (props) => {
             borderWidth: 0,
             margin: 1,
           }}
-          textStyle={{flex: 1, fontWeight: right_answer === 1 ? 'bold' : 'normal'}}
+          textStyle={{
+            flex: 1,
+            fontWeight: right_answer === 1 ? 'bold' : 'normal',
+          }}
           onPress={() => {
             setCheckQuestion(1);
           }}
@@ -70,7 +105,10 @@ const _renderItem = (props) => {
             borderWidth: 0,
             margin: 1,
           }}
-          textStyle={{flex: 1, fontWeight: right_answer === 2 ? 'bold' : 'normal'}}
+          textStyle={{
+            flex: 1,
+            fontWeight: right_answer === 2 ? 'bold' : 'normal',
+          }}
           onPress={() => {
             setCheckQuestion(2);
           }}
@@ -87,7 +125,10 @@ const _renderItem = (props) => {
               borderWidth: 0,
               margin: 1,
             }}
-            textStyle={{flex: 1, fontWeight: right_answer === 3 ? 'bold' : 'normal'}}
+            textStyle={{
+              flex: 1,
+              fontWeight: right_answer === 3 ? 'bold' : 'normal',
+            }}
             onPress={() => {
               setCheckQuestion(3);
             }}
@@ -105,7 +146,10 @@ const _renderItem = (props) => {
               borderWidth: 0,
               margin: 1,
             }}
-            textStyle={{flex: 1, fontWeight: right_answer === 4 ? 'bold' : 'normal'}}
+            textStyle={{
+              flex: 1,
+              fontWeight: right_answer === 4 ? 'bold' : 'normal',
+            }}
             onPress={() => {
               setCheckQuestion(4);
             }}
@@ -114,11 +158,20 @@ const _renderItem = (props) => {
       </View>
       {item.hint.length > 2 && (
         <View style={{paddingVertical: 10, backgroundColor: '#FFFAC6'}}>
-          <View style={{flexDirection: 'row', marginStart: 10, alignItems: 'center'}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              marginStart: 10,
+              alignItems: 'center',
+            }}>
             <Icon name="lightbulb-on" size={20} color="#FF343C" />
-            <Text style={{color: '#FF343C', marginStart: 10}}>Giải thích đáp án</Text>
+            <Text style={{color: '#FF343C', marginStart: 10}}>
+              Giải thích đáp án
+            </Text>
           </View>
-          <Text style={{margin: 10}}>{item.hint.replace(/<br ?\/?>/g, '\n')}</Text>
+          <Text style={{margin: 10}}>
+            {item.hint.replace(/<br ?\/?>/g, '\n')}
+          </Text>
         </View>
       )}
     </View>
@@ -233,7 +286,12 @@ const Setting_Screen = () => {
             tabBarInactiveTextColor={'#757575'}
             tabBarUnderlineStyle={{backgroundColor: '#3D6DCC', height: 1}}>
             {data.map((i, index) => (
-              <_renderItem style={styles.tabView} tabLabel={'Câu ' + (index + 1)} key={`${index}`} item={i} />
+              <_renderItem
+                style={styles.tabView}
+                tabLabel={'Câu ' + (index + 1)}
+                key={`${index}`}
+                item={i}
+              />
             ))}
           </ScrollableTabView>
           <TouchableOpacity
@@ -254,8 +312,17 @@ const Setting_Screen = () => {
                 alignItems: 'center',
                 marginHorizontal: 10,
               }}>
-              <Icon name={checkshow ? 'chevron-down' : 'chevron-up'} color="white" size={20} />
-              <Text style={{color: 'white', marginStart: 10, fontWeight: 'bold'}}>{`${data.length} CÂU HỎI`}</Text>
+              <Icon
+                name={checkshow ? 'chevron-down' : 'chevron-up'}
+                color="white"
+                size={20}
+              />
+              <Text
+                style={{
+                  color: 'white',
+                  marginStart: 10,
+                  fontWeight: 'bold',
+                }}>{`${data.length} CÂU HỎI`}</Text>
             </View>
           </TouchableOpacity>
           {checkshow && (
@@ -286,7 +353,10 @@ const Setting_Screen = () => {
                         margin: 2,
                       }}
                       key={`${index}-menuitem`}>
-                      <Text style={{fontWeight: 'bold', color: '#37474f'}}>{`Câu ${index + 1}`}</Text>
+                      <Text
+                        style={{fontWeight: 'bold', color: '#37474f'}}>{`Câu ${
+                        index + 1
+                      }`}</Text>
                     </TouchableOpacity>
                   ))}
                 </View>

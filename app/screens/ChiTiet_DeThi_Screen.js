@@ -13,6 +13,7 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Alert,
+  BackHandler,
 } from 'react-native';
 import {Header} from 'react-native-elements';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -221,6 +222,7 @@ const _renderTimer = (props) => {
       gotoKetQuaPage(time);
     }
     return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [checkKetThuc]);
 
   useEffect(() => {
@@ -228,6 +230,7 @@ const _renderTimer = (props) => {
       clearInterval(timer);
     }
     return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isRunning, time]);
 
   //question_time
@@ -261,6 +264,7 @@ const _renderTimer = (props) => {
       );
     }
     return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [time]);
 
   return (
@@ -367,15 +371,36 @@ const Setting_Screen = () => {
     ]);
   };
 
-  /* useEffect(() => {
-    const unsubscribe = navigation.addListener('beforeRemove', (e) => {
-      e.preventDefault();
-      kethucBaiThi();
-    });
-    return () => {
-      unsubscribe();
+  useEffect(() => {
+    const backAction = () => {
+      Alert.alert(
+        'Kết thúc bài thi?',
+        'Bài thi sẽ được kết thúc và chấm điểm',
+        [
+          {
+            text: 'Tiếp tục',
+            onPress: () => null,
+            style: 'cancel',
+          },
+          {
+            text: 'Kết thúc',
+            onPress: () => {
+              setCheckKetThuc(true);
+              backHandler.remove();
+            },
+          },
+        ],
+      );
+      return true;
     };
-  }, [navigation]); */
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+
+    return () => backHandler.remove();
+  }, []);
 
   useEffect(() => {
     let tmp = [];
