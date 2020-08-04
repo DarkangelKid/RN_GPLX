@@ -23,6 +23,7 @@ import BoDeThi_Screen from '../screens/BoDeThi_Screen';
 import DanhSachDeThi_Screen from '../screens/DanhSachDeThi_Screen';
 import ChiTiet_DeThi_Screen from '../screens/ChiTiet_DeThi_Screen';
 import KetQua_DeThi_Screen from '../screens/KetQua_DeThi_Screen';
+import TopCauSai_Screen from '../screens/TopCauSai_Screen';
 
 import questions from '../data/questions.json';
 import exams from '../data/exams.json';
@@ -253,6 +254,13 @@ const RootContainerScreen = () => {
         <Stack.Screen
           name="KetQua_DeThi_Screen"
           component={KetQua_DeThi_Screen}
+          options={{
+            animationEnabled: true,
+          }}
+        />
+        <Stack.Screen
+          name="TopCauSai_Screen"
+          component={TopCauSai_Screen}
           options={{
             animationEnabled: true,
           }}

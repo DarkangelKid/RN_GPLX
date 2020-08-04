@@ -116,6 +116,24 @@ const Home_Screen = () => {
                   paddingHorizontal: 10,
                   paddingVertical: 5,
                 }}>
+                <Icon name={'sigma'} size={20} color="#607d8b" />
+                <Text
+                  style={{marginStart: 5, fontWeight: 'bold', fontSize: 18}}>
+                  {exam.rights_count +
+                    exam.no_answers_count +
+                    exam.wrongs_count}
+                </Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  borderWidth: 0.3,
+                  borderColor: '#607d8b',
+                  borderRadius: 10,
+                  paddingHorizontal: 10,
+                  paddingVertical: 5,
+                }}>
                 <Icon name={'check-circle'} size={20} color="#607d8b" />
                 <Text
                   style={{marginStart: 5, fontWeight: 'bold', fontSize: 18}}>

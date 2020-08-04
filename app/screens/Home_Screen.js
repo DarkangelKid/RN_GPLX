@@ -144,8 +144,7 @@ const Home_Screen = () => {
               },
               styles.containerMenu,
             ]}
-            //onPress={() => navigation.navigate('Setting_Screen')}
-          >
+            onPress={() => navigation.navigate('TopCauSai_Screen')}>
             <Icon
               size={42}
               name="times-octagon"

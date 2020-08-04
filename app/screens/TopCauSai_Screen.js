@@ -30,9 +30,9 @@ const Setting_Screen = () => {
   const tabView = useRef();
 
   const route = useRoute();
-  const {item} = route.params;
 
   const [data, setData] = useState([]);
+  const [loadding, setLoadding] = useState(true);
 
   const [checkshow, setCheckshow] = useState(false);
 
@@ -66,16 +66,13 @@ const Setting_Screen = () => {
       break;
   }
 
-  if (item.index === 8) {
-    query += 'AND right_required=1';
-  } else if (item.index > 0) {
-    query += 'AND type = ' + item.index;
-  }
+  query += 'AND wrongs_count>0';
 
   useEffect(() => {
     let Question = realm.objects('Question');
-    const result = Question.filtered(query);
+    const result = Question.filtered(query).sorted('wrongs_count', true);
     setData(result);
+    setLoadding(false);
 
     return () => {};
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -99,7 +96,7 @@ const Setting_Screen = () => {
         statusBarProps={{barStyle: 'light-content'}}
         barStyle="light-content"
         centerComponent={{
-          text: item?.name ?? 'Ôn tập các câu hỏi',
+          text: 'Câu bị sai',
           style: {color: '#fff', fontSize: 20, fontWeight: 'bold'},
         }}
         containerStyle={{
@@ -118,8 +115,16 @@ const Setting_Screen = () => {
           />
         }
       />
-
-      {data.length > 0 ? (
+      {loadding ? (
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignContent: 'center',
+          }}>
+          <ActivityIndicator size="large" color="#fb8c00" />
+        </View>
+      ) : data.length > 0 ? (
         <>
           <ScrollableTabView
             ref={tabView}
@@ -216,7 +221,7 @@ const Setting_Screen = () => {
             justifyContent: 'center',
             alignContent: 'center',
           }}>
-          <ActivityIndicator size="large" color="#fb8c00" />
+          {/* <ActivityIndicator size="large" color="#fb8c00" /> */}
         </View>
       )}
     </View>
