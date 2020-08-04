@@ -1,0 +1,92 @@
+[
+    {
+        "license_type": 1,
+        "text": "A1",
+        "content": "Xe mô tô 2 bánh có dung tích xy lanh dưới 175 cm3",
+        "question_type": 1,
+        "question_max": 25,
+        "question_require": 21,
+        "question_time": 1140000
+    },
+    {
+        "license_type": 2,
+        "text": "A2",
+        "content": "Xe mô tô 2 bánh có dung tích xy lanh từ 175 cm3 trở lên",
+        "question_type": 2,
+        "question_max": 25,
+        "question_require": 23,
+        "question_time": 1140000
+    },
+    {
+        "license_type": 3,
+        "text": "A3",
+        "content": "Xe mô tô 3 bánh",
+        "question_type": 3,
+        "question_max": 25,
+        "question_require": 23,
+        "question_time": 1140000
+    },
+    {
+        "license_type": 4,
+        "text": "A4",
+        "content": "Xe máy kéo nhỏ có trọng tải đến 1000kg",
+        "question_type": 4,
+        "question_max": 25,
+        "question_require": 23,
+        "question_time": 1140000
+    },
+    {
+        "license_type": 5,
+        "text": "B1",
+        "content": "Không hành nghề lái xe, xe đến 9 chỗ ngồi, xe trọng tải dưới 3.500kg",
+        "question_type": 5,
+        "question_max": 30,
+        "question_require": 27,
+        "question_time": 1200000
+    },
+    {
+        "license_type": 6,
+        "text": "B2",
+        "content": "Hành nghề lái xe, xe đến 9 chỗ ngồi, xe trọng tải dưới 3.500kg",
+        "question_type": 6,
+        "question_max": 35,
+        "question_require": 32,
+        "question_time": 1320000
+    },
+    {
+        "license_type": 7,
+        "text": "C",
+        "content": "Xe ô tô đến 9 chỗ ngồi, xe trọng tải trên 3.500kg",
+        "question_type": 7,
+        "question_max": 40,
+        "question_require": 36,
+        "question_time": 1440000
+    },
+    {
+        "license_type": 8,
+        "text": "D",
+        "content": "Xe ô tô chở từ 10 đến 30 người",
+        "question_type": 8,
+        "question_max": 45,
+        "question_require": 41,
+        "question_time": 1560000
+    },
+    {
+        "license_type": 9,
+        "text": "E",
+        "content": "Xe ô tô chở trên 30 người",
+        "question_type": 8,
+        "question_max": 45,
+        "question_require": 41,
+        "question_time": 1560000
+    },
+    {
+        "license_type": 10,
+        "text": "F",
+        "content": "Xe rơ móc",
+        "question_type": 8,
+        "question_max": 45,
+        "question_require": 41,
+        "question_time": 1560000
+    }
+]

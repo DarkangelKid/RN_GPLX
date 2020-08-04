@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "951838266138",
+    "firebase_url": "https://techz-b54ef.firebaseio.com",
+    "project_id": "techz-b54ef",
+    "storage_bucket": "techz-b54ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:951838266138:android:c6054f2e6b7ca3b23312a3",
+        "android_client_info": {
+          "package_name": "com.daotaolaixehd.onthigplx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "951838266138-t3rjknb07o2sv6g7hmkfcp2piel74dpa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr6LmSeM2LuYwRW3Xj8SL4sAxZnoFR7B8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "951838266138-t3rjknb07o2sv6g7hmkfcp2piel74dpa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "951838266138-j0effi3h5t76h029bcgf0h1jpf8j4b9u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.daotaolaixehd.onthigplx"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
