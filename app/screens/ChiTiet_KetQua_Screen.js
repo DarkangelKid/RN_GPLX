@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState, useRef} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {
   StyleSheet,
   View,
@@ -8,7 +8,7 @@ import {
   StatusBar,
   Platform,
   Dimensions,
-  ScrollView,
+  FlatList,
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
@@ -18,65 +18,41 @@ import Icon from 'react-native-vector-icons/FontAwesome5Pro';
 import ScrollableTabView, {
   ScrollableTabBar,
 } from '../modules/react-native-scrollable-tab-view';
+import _ from 'lodash';
 
 import realm from '../utils/realm';
+import {displayTime} from '../utils/utils';
+import license from '../data/license.json';
 
-import Item_ChiTiet_KetQua from '../components/Item_ChiTiet_KetQua';
+import Item_ChiTiet from '../components/Item_ChiTiet';
 
 const win = Dimensions.get('window');
 
-const Setting_Screen = () => {
+const ChiTiet_KetQua_Screen = () => {
+  let Question = realm.objects('Question');
+
   const navigation = useNavigation();
   const tabView = useRef();
-
   const route = useRoute();
 
-  const [data, setData] = useState([]);
-  const [loadding, setLoadding] = useState(true);
+  const {initData, initTime, initIndex} = route.params;
 
+  const [data, setData] = useState([]);
   const [checkshow, setCheckshow] = useState(false);
 
-  const check_license = useSelector((state) => state.global.check_license);
-
-  let query = '';
-  switch (check_license) {
-    case 0:
-      query += 'a1_no > 0 ';
-      break;
-    case 1:
-      query += 'a2_no > 0 ';
-      break;
-    case 2:
-      query += 'a3_no > 0 ';
-      break;
-    case 3:
-      query += 'a4_no > 0 ';
-      break;
-    case 4:
-      query += 'b1_no > 0 ';
-      break;
-    case 5:
-      query += 'b2_no > 0 ';
-      break;
-    case 6:
-      query += 'c_no > 0 ';
-      break;
-    default:
-      query += 'def_no > 0 ';
-      break;
-  }
-
-  query += 'AND wrongs_count>0';
-
   useEffect(() => {
-    let Question = realm.objects('Question');
-    const result = Question.filtered(query).sorted('wrongs_count', true);
-    setData(result);
-    setLoadding(false);
+    let tmp = [];
+    initData.map((i) => {
+      let question_item = Question.filtered('id = ' + i.id)[0];
 
-    return () => {};
+      tmp.push(question_item);
+    });
+    setData(tmp);
+    return () => {
+      setData([]);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [initData]);
 
   useEffect(() => {
     StatusBar.setBarStyle('light-content');
@@ -96,7 +72,7 @@ const Setting_Screen = () => {
         statusBarProps={{barStyle: 'light-content'}}
         barStyle="light-content"
         centerComponent={{
-          text: 'Câu bị sai',
+          text: 'Lịch sử thi',
           style: {color: '#fff', fontSize: 20, fontWeight: 'bold'},
         }}
         containerStyle={{
@@ -115,19 +91,10 @@ const Setting_Screen = () => {
           />
         }
       />
-      {loadding ? (
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignContent: 'center',
-          }}>
-          <Text>123123</Text>
-          <ActivityIndicator size="large" color="#fb8c00" />
-        </View>
-      ) : data.length > 0 ? (
+      {data.length > 0 ? (
         <>
           <ScrollableTabView
+            initialPage={initIndex}
             ref={tabView}
             prerenderingSiblingsNumber={1}
             style={{flex: 1}}
@@ -137,11 +104,15 @@ const Setting_Screen = () => {
             tabBarInactiveTextColor={'#757575'}
             tabBarUnderlineStyle={{backgroundColor: '#3D6DCC', height: 1}}>
             {data.map((i, index) => (
-              <Item_ChiTiet_KetQua
+              <Item_ChiTiet
                 style={styles.tabView}
                 tabLabel={'Câu ' + (index + 1)}
                 key={`${index}`}
                 item={i}
+                checkDapAn={() => {}}
+                showButton={true}
+                isShowDapAn={true}
+                selected_answer_tmp={initData[index].selected_answer}
               />
             ))}
           </ScrollableTabView>
@@ -178,40 +149,41 @@ const Setting_Screen = () => {
           </TouchableOpacity>
           {checkshow && (
             <View style={{height: 300, padding: 5}}>
-              <ScrollView>
-                <View
-                  style={{
-                    flex: 1,
-                    flexDirection: 'row',
-                    justifyContent: 'flex-start',
-                    flexWrap: 'wrap',
-                    backgroundColor: '#eceff1',
-                  }}>
-                  {data.map((i, index) => (
-                    <TouchableOpacity
-                      onPress={() => {
-                        tabView.current.goToPage(index);
-                        setCheckshow(false);
-                      }}
-                      style={{
-                        backgroundColor: 'white',
-                        width: (win.width - 10) / 4 - 4,
-                        height: 40,
-                        borderWidth: 0.3,
-                        borderColor: '#cfd8dc',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        margin: 2,
-                      }}
-                      key={`${index}-menuitem`}>
-                      <Text
-                        style={{fontWeight: 'bold', color: '#37474f'}}>{`Câu ${
-                        index + 1
-                      }`}</Text>
-                    </TouchableOpacity>
-                  ))}
-                </View>
-              </ScrollView>
+              <FlatList
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                  flexGrow: 1,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+                horizontal={false}
+                numColumns={4}
+                data={data}
+                renderItem={({item, index}) => (
+                  <TouchableOpacity
+                    onPress={() => {
+                      tabView.current.goToPage(index);
+                      setCheckshow(false);
+                    }}
+                    style={{
+                      backgroundColor: 'white',
+                      width: (win.width - 10) / 4 - 4,
+                      height: 40,
+                      borderWidth: 0.3,
+                      borderColor: '#cfd8dc',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      margin: 2,
+                    }}
+                    key={`${index}-menuitem`}>
+                    <Text
+                      style={{fontWeight: 'bold', color: '#37474f'}}>{`Câu ${
+                      index + 1
+                    }`}</Text>
+                  </TouchableOpacity>
+                )}
+                keyExtractor={(item, index) => index.toString()}
+              />
             </View>
           )}
         </>
@@ -222,24 +194,14 @@ const Setting_Screen = () => {
             justifyContent: 'center',
             alignContent: 'center',
           }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Icon name={'smile-wink'} size={50} color="#9ccc65" />
-            <Text style={{marginStart: 10, fontSize: 18}}>
-              Bạn không có câu trả lời nào sai!
-            </Text>
-          </View>
+          <ActivityIndicator size="large" color="#fb8c00" />
         </View>
       )}
     </View>
   );
 };
 
-export default Setting_Screen;
+export default ChiTiet_KetQua_Screen;
 const styles = StyleSheet.create({
   tabView: {
     flex: 1,

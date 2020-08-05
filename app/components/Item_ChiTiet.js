@@ -1,13 +1,20 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState} from 'react';
-import {Text, View, Platform, Image, Dimensions, ScrollView} from 'react-native';
+import {
+  Text,
+  View,
+  Platform,
+  Image,
+  Dimensions,
+  ScrollView,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
 import {CheckBox, Divider, Button} from 'react-native-elements';
 const win = Dimensions.get('window');
 
 const _renderCheckbox = (props) => {
   const {
-    guidapan,
+    setLuaChon,
     showDapAn,
     title,
     right_answer,
@@ -44,7 +51,7 @@ const _renderCheckbox = (props) => {
       }}
       onPress={() => {
         if (!showDapAn) {
-          guidapan(index);
+          setLuaChon(index);
         }
       }}
     />
@@ -52,14 +59,28 @@ const _renderCheckbox = (props) => {
 };
 
 const Item_ChiTiet = (props) => {
-  const {item, checkDapAn, showButton} = props;
+  const {
+    item,
+    checkDapAn,
+    showButton,
+    isShowDapAn,
+    selected_answer_tmp,
+  } = props;
 
-  const [checkQuestion, setCheckQuestion] = useState(0);
+  console.log('selected_answer_tmp');
+  console.log(selected_answer_tmp);
+
+  let selected_answer = item?.selected_answer ?? 0;
+  selected_answer = selected_answer_tmp ? selected_answer_tmp : selected_answer;
+
+  console.log('selected_answer' + selected_answer);
+
   const right_answer = item.right_answer;
 
-  const [showDapAn, setShowDapAn] = useState(false);
+  const [checkQuestion, setCheckQuestion] = useState(selected_answer);
+  const [showDapAn, setShowDapAn] = useState(isShowDapAn);
 
-  const guidapan = (luachon) => {
+  const setLuaChon = (luachon) => {
     if (checkQuestion === luachon) {
       luachon = 0;
     }
@@ -131,7 +152,7 @@ const Item_ChiTiet = (props) => {
             title={item_}
             index={index + 1}
             right_answer={right_answer}
-            guidapan={guidapan}
+            setLuaChon={setLuaChon}
             checkQuestion={checkQuestion}
             showDapAn={showDapAn}
           />
