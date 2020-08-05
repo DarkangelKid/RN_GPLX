@@ -122,6 +122,7 @@ const Setting_Screen = () => {
             justifyContent: 'center',
             alignContent: 'center',
           }}>
+          <Text>123123</Text>
           <ActivityIndicator size="large" color="#fb8c00" />
         </View>
       ) : data.length > 0 ? (
@@ -221,7 +222,17 @@ const Setting_Screen = () => {
             justifyContent: 'center',
             alignContent: 'center',
           }}>
-          {/* <ActivityIndicator size="large" color="#fb8c00" /> */}
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Icon name={'smile-wink'} size={50} color="#9ccc65" />
+            <Text style={{marginStart: 10, fontSize: 18}}>
+              Bạn không có câu trả lời nào sai!
+            </Text>
+          </View>
         </View>
       )}
     </View>
