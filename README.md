@@ -137,3 +137,5 @@ Trong 20 bộ đề thi bằng lái xe A2 online này, sẽ có 20 bộ đề th
 Số điểm cần đạt: 18 điểm trở lên là đậu.
 
 Thời gian làm bài: 15 phút.
+
+cd android && ./gradlew assembleRelease

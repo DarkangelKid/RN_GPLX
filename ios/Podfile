@@ -8,6 +8,8 @@ target 'demoapp' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  pod 'Realm'
+
   target 'demoappTests' do
     inherit! :complete
     # Pods for testing

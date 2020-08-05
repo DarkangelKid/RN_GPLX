@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>951838266138-j0effi3h5t76h029bcgf0h1jpf8j4b9u.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.951838266138-j0effi3h5t76h029bcgf0h1jpf8j4b9u</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDjOGF3W0kXVUBu2bLWi9Wtz20AQ1jFP28</string>
+	<key>GCM_SENDER_ID</key>
+	<string>951838266138</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.daotaolaixehd.onthigplx</string>
+	<key>PROJECT_ID</key>
+	<string>techz-b54ef</string>
+	<key>STORAGE_BUCKET</key>
+	<string>techz-b54ef.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:951838266138:ios:7d2e3b64c2feabaa3312a3</string>
+	<key>DATABASE_URL</key>
+	<string>https://techz-b54ef.firebaseio.com</string>
+</dict>
+</plist>
