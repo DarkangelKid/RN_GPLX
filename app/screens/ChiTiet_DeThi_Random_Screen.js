@@ -8,7 +8,7 @@ import {
   StatusBar,
   Platform,
   Dimensions,
-  ScrollView,
+  FlatList,
   TouchableOpacity,
   ActivityIndicator,
   Alert,
@@ -169,7 +169,7 @@ const Setting_Screen = () => {
       }
     }
 
-    navigation.navigate('KetQua_DeThi_Random_Screen', {
+    navigation.navigate('KetQua_DeThi_Screen', {
       datadapan: datadapan,
       time_tmp: time_tmp,
     });
@@ -390,40 +390,41 @@ const Setting_Screen = () => {
           </TouchableOpacity>
           {checkshow && (
             <View style={{height: 300, padding: 5}}>
-              <ScrollView>
-                <View
-                  style={{
-                    flex: 1,
-                    flexDirection: 'row',
-                    justifyContent: 'flex-start',
-                    flexWrap: 'wrap',
-                    backgroundColor: '#eceff1',
-                  }}>
-                  {data.map((i, index) => (
-                    <TouchableOpacity
-                      onPress={() => {
-                        tabView.current.goToPage(index);
-                        setCheckshow(false);
-                      }}
-                      style={{
-                        backgroundColor: 'white',
-                        width: (win.width - 10) / 4 - 4,
-                        height: 40,
-                        borderWidth: 0.3,
-                        borderColor: '#cfd8dc',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        margin: 2,
-                      }}
-                      key={`${index}-menuitem`}>
-                      <Text
-                        style={{fontWeight: 'bold', color: '#37474f'}}>{`Câu ${
-                        index + 1
-                      }`}</Text>
-                    </TouchableOpacity>
-                  ))}
-                </View>
-              </ScrollView>
+              <FlatList
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{
+                  flexGrow: 1,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+                horizontal={false}
+                numColumns={4}
+                data={data}
+                renderItem={({item, index}) => (
+                  <TouchableOpacity
+                    onPress={() => {
+                      tabView.current.goToPage(index);
+                      setCheckshow(false);
+                    }}
+                    style={{
+                      backgroundColor: 'white',
+                      width: (win.width - 10) / 4 - 4,
+                      height: 40,
+                      borderWidth: 0.3,
+                      borderColor: '#cfd8dc',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      margin: 2,
+                    }}
+                    key={`${index}-menuitem`}>
+                    <Text
+                      style={{fontWeight: 'bold', color: '#37474f'}}>{`Câu ${
+                      index + 1
+                    }`}</Text>
+                  </TouchableOpacity>
+                )}
+                keyExtractor={(item, index) => index.toString()}
+              />
             </View>
           )}
         </>
