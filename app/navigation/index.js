@@ -5,6 +5,7 @@ import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {actions} from '../redux/GLOBALRedux';
+import SplashScreen from 'react-native-splash-screen';
 
 const Stack = createStackNavigator();
 
@@ -33,7 +34,7 @@ import exams from '../data/exams.json';
 
 import realm from '../utils/realm';
 
-const SplashScreen = () => {
+const SplashScreen_ = () => {
   return (
     <View
       style={{
@@ -157,11 +158,12 @@ const RootContainerScreen = () => {
   }
 
   useEffect(() => {
+    SplashScreen.hide();
     return () => {};
   }, []);
 
   if (!loaddata) {
-    return <SplashScreen />;
+    return <SplashScreen_ />;
   }
 
   return (

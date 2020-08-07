@@ -40,7 +40,7 @@ const _renderItem = (props) => {
           color="#7cb342"
         />
       </View>
-      <View>
+      <View style={{flex: 1}}>
         <Text style={{color: '#565656', fontWeight: 'bold'}}>
           Bằng {item.text}
         </Text>
@@ -50,6 +50,7 @@ const _renderItem = (props) => {
             marginLeft: 0,
             color: '#565656',
             marginVertical: 5,
+            flex: 1,
           }}>
           {item.content}
         </Text>
