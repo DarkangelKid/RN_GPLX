@@ -57,8 +57,6 @@ const RootContainerScreen = () => {
   let Exam = realm.objects('Exam');
   let ExamDetail = realm.objects('ExamDetail');
 
-  console.log('aaa');
-
   if (!loaddata) {
     if (Question.length < 600) {
       questions.map((item) => {
