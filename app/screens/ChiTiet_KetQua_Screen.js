@@ -21,12 +21,48 @@ import ScrollableTabView, {
 import _ from 'lodash';
 
 import realm from '../utils/realm';
-import {displayTime} from '../utils/utils';
-import license from '../data/license.json';
 
 import Item_ChiTiet from '../components/Item_ChiTiet';
 
 const win = Dimensions.get('window');
+
+const _renderItem = (props) => {
+  const {item, index, goToChiTiet, selected_answer_tmp} = props;
+  let icon_name = 'times-circle';
+  let color_name = '#c62828';
+  if (selected_answer_tmp === 0) {
+    icon_name = 'exclamation-circle';
+    color_name = '#c62828';
+  } else if (selected_answer_tmp === item.right_answer) {
+    icon_name = 'check-circle';
+    color_name = '#607d8b';
+  }
+
+  return (
+    <TouchableOpacity
+      onPress={() => {
+        goToChiTiet(index);
+      }}
+      style={{
+        backgroundColor: 'white',
+        width: (win.width - 10) / 4 - 4,
+        height: 40,
+        borderWidth: 0.3,
+        borderColor: '#cfd8dc',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 2,
+        flexDirection: 'row',
+      }}
+      key={`${index}-menuitem`}>
+      <Icon name={icon_name} size={20} color={color_name} />
+      <Text
+        style={{fontWeight: 'bold', color: '#37474f', marginStart: 5}}>{`Câu ${
+        index + 1
+      }`}</Text>
+    </TouchableOpacity>
+  );
+};
 
 const ChiTiet_KetQua_Screen = () => {
   let Question = realm.objects('Question');
@@ -64,6 +100,11 @@ const ChiTiet_KetQua_Screen = () => {
 
     return () => {};
   }, []);
+
+  const goToChiTiet = (index) => {
+    tabView.current.goToPage(index);
+    setCheckshow(false);
+  };
 
   return (
     <View style={{flex: 1, backgroundColor: '#FFF'}}>
@@ -160,27 +201,12 @@ const ChiTiet_KetQua_Screen = () => {
                 numColumns={4}
                 data={data}
                 renderItem={({item, index}) => (
-                  <TouchableOpacity
-                    onPress={() => {
-                      tabView.current.goToPage(index);
-                      setCheckshow(false);
-                    }}
-                    style={{
-                      backgroundColor: 'white',
-                      width: (win.width - 10) / 4 - 4,
-                      height: 40,
-                      borderWidth: 0.3,
-                      borderColor: '#cfd8dc',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      margin: 2,
-                    }}
-                    key={`${index}-menuitem`}>
-                    <Text
-                      style={{fontWeight: 'bold', color: '#37474f'}}>{`Câu ${
-                      index + 1
-                    }`}</Text>
-                  </TouchableOpacity>
+                  <_renderItem
+                    item={item}
+                    index={index}
+                    goToChiTiet={goToChiTiet}
+                    selected_answer_tmp={initData[index].selected_answer}
+                  />
                 )}
                 keyExtractor={(item, index) => index.toString()}
               />

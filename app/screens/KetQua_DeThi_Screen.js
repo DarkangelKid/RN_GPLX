@@ -26,6 +26,7 @@ const _renderItem = (props) => {
   const {item, index, goToChiTiet} = props;
   let icon_name = 'times-circle';
   let color_name = '#c62828';
+
   if (item.selected_answer === 0) {
     icon_name = 'exclamation-circle';
     color_name = '#c62828';

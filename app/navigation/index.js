@@ -40,6 +40,7 @@ const SplashScreen = () => {
         flex: 1,
         justifyContent: 'center',
         alignContent: 'center',
+        backgroundColor: 'black',
       }}>
       <ActivityIndicator size="large" color="#fb8c00" />
     </View>
@@ -55,6 +56,8 @@ const RootContainerScreen = () => {
   let Question = realm.objects('Question');
   let Exam = realm.objects('Exam');
   let ExamDetail = realm.objects('ExamDetail');
+
+  console.log('aaa');
 
   if (!loaddata) {
     if (Question.length < 600) {
@@ -295,11 +298,3 @@ const RootContainerScreen = () => {
 };
 
 export default RootContainerScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
