@@ -67,13 +67,10 @@ const Item_ChiTiet = (props) => {
     selected_answer_tmp,
   } = props;
 
-  console.log('selected_answer_tmp');
-  console.log(selected_answer_tmp);
 
   let selected_answer = item?.selected_answer ?? 0;
   selected_answer = selected_answer_tmp ? selected_answer_tmp : selected_answer;
 
-  console.log('selected_answer' + selected_answer);
 
   const right_answer = item.right_answer;
 

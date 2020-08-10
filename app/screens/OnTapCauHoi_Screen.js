@@ -10,7 +10,6 @@ import question_type from '../data/question_type.json';
 
 const _renderItem = (props) => {
   const {item, handlePress} = props;
-  console.log(item);
   return (
     <Pressable
       android_ripple={{
