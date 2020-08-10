@@ -7,6 +7,7 @@ import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
 
 import question_type from '../data/question_type.json';
+import Banner from '../components/Banner';
 
 const _renderItem = (props) => {
   const {item, handlePress} = props;
@@ -130,6 +131,7 @@ const Setting_Screen = () => {
           keyExtractor={(item, index) => index.toString()}
         />
       </View>
+      <Banner />
     </View>
   );
 };

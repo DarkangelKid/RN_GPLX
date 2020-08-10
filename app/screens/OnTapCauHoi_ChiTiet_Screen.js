@@ -21,6 +21,7 @@ import ScrollableTabView, {
 } from '../modules/react-native-scrollable-tab-view';
 
 import realm from '../utils/realm';
+import Interstitial from '../components/Interstitial';
 
 import Item_ChiTiet_KetQua from '../components/Item_ChiTiet_KetQua';
 import Item_ChiTiet from '../components/Item_ChiTiet';
@@ -224,6 +225,7 @@ const Setting_Screen = () => {
           <ActivityIndicator size="large" color="#fb8c00" />
         </View>
       )}
+      <Interstitial />
     </View>
   );
 };

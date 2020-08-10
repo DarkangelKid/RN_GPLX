@@ -5,6 +5,7 @@ import {Header} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
 import {WebView} from 'react-native-webview';
+import Banner from '../components/Banner';
 
 import tips from '../data/tips';
 
@@ -51,6 +52,7 @@ const Setting_Screen = () => {
       <View style={{flex: 1}}>
         <WebView originWhitelist={['*']} source={{html: tips}} />
       </View>
+      <Banner />
     </View>
   );
 };

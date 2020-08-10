@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5Pro';
 import {WebView} from 'react-native-webview';
 
 import sahinh from '../data/sahinh';
+import Banner from '../components/Banner';
 
 const Setting_Screen = () => {
   const navigation = useNavigation();
@@ -51,6 +52,7 @@ const Setting_Screen = () => {
       <View style={{flex: 1}}>
         <WebView originWhitelist={['*']} source={{html: sahinh}} />
       </View>
+      <Banner />
     </View>
   );
 };
