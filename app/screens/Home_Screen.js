@@ -19,6 +19,7 @@ import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome5Pro';
 
 import license from '../data/license.json';
+import Banner from '../components/Banner';
 
 const Home_Screen = () => {
   const navigation = useNavigation();
@@ -259,6 +260,8 @@ const Home_Screen = () => {
           </Pressable>
         </View>
       </ScrollView>
+
+      <Banner />
     </View>
   );
 };

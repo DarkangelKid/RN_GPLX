@@ -29,6 +29,7 @@ import license from '../data/license.json';
 import Item_ChiTiet from '../components/Item_ChiTiet';
 
 const win = Dimensions.get('window');
+import Interstitial from '../components/Interstitial';
 
 const _renderTimer = (props) => {
   const {question_time, gotoKetQuaPage, checkKetThuc} = props;
@@ -431,6 +432,7 @@ const Setting_Screen = () => {
           <ActivityIndicator size="large" color="#fb8c00" />
         </View>
       )}
+      <Interstitial />
     </View>
   );
 };

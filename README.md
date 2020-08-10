@@ -139,3 +139,8 @@ Số điểm cần đạt: 18 điểm trở lên là đậu.
 Thời gian làm bài: 15 phút.
 
 cd android && ./gradlew assembleRelease
+
+
+source $HOME/.bash_profile;    
+
+adb reverse tcp:8081 tcp:8081    

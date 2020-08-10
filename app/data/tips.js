@@ -69,8 +69,8 @@
             <li><a href="#phan_a">A. CÂU HỎI DẠNG CHỮ</a></li>
             <li><a href="#phan_b">B. CÂU HỎI VỀ NGHIỆP VỤ VẬN TẢI</a></li>
             <li><a href="#phan_c">C. CÂU HỎI VỀ ĐẠO ĐỨC + VĂN HÓA GIAO THÔNG</a></li>
-            <li><a href="#phan_d">D. CÂU HỎI VỀ CẤU TẠO Ô TÔ </a></li>
-            <li><a href="#phan_e">E. CÂU HỎI VỀ SA HÌNH</a></li>
+            <li><a href="#phan_d">D. CÂU HỎI VỀ KỸ THUẬT LÁI XE </a></li>
+            <li><a href="#phan_e">E. CÂU HỎI VỀ CẤU TẠO Ô TÔ</a></li>
 
         </ol>
         <h2><a name="phan_a"></a>A. CÂU HỎI DẠNG CHỮ</h2>

@@ -22,6 +22,8 @@ const win = Dimensions.get('window');
 
 import {displayTime} from '../utils/utils';
 
+import Banner from '../components/Banner';
+
 const _renderItem = (props) => {
   const {item, index, goToChiTiet} = props;
   let icon_name = 'times-circle';
@@ -311,6 +313,7 @@ const Home_Screen = () => {
         )}
         keyExtractor={(item, index) => index.toString()}
       />
+      <Banner />
     </View>
   );
 };
