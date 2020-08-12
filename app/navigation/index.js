@@ -28,6 +28,7 @@ import TopCauSai_Screen from '../screens/TopCauSai_Screen';
 import KetQua_DeThi_Random_Screen from '../screens/KetQua_DeThi_Random_Screen';
 import ChiTiet_DeThi_Random_Screen from '../screens/ChiTiet_DeThi_Random_Screen';
 import ChiTiet_KetQua_Screen from '../screens/ChiTiet_KetQua_Screen';
+import SaHinh_LyThuyet_Screen from '../screens/SaHinh_LyThuyet_Screen';
 
 import questions from '../data/questions.json';
 import exams from '../data/exams.json';
@@ -288,6 +289,13 @@ const RootContainerScreen = () => {
         <Stack.Screen
           name="ChiTiet_KetQua_Screen"
           component={ChiTiet_KetQua_Screen}
+          options={{
+            animationEnabled: true,
+          }}
+        />
+        <Stack.Screen
+          name="SaHinh_LyThuyet_Screen"
+          component={SaHinh_LyThuyet_Screen}
           options={{
             animationEnabled: true,
           }}

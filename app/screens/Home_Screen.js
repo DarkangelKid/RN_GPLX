@@ -236,7 +236,7 @@ const Home_Screen = () => {
               underlayColor="#00000000"
               style={styles.icon}
             />
-            <Text style={styles.text}>Bài thi sa hình</Text>
+            <Text style={styles.text}>Sa hình - Thực hành</Text>
           </Pressable>
           <Pressable
             android_ripple={{
@@ -257,6 +257,28 @@ const Home_Screen = () => {
               style={styles.icon}
             />
             <Text style={styles.text}>Mẹo thi</Text>
+          </Pressable>
+        </View>
+        <View style={{flexDirection: 'row'}}>
+          <Pressable
+            android_ripple={{
+              color: 'white',
+            }}
+            style={({pressed}) => [
+              {
+                backgroundColor: pressed ? '#81c784' : '#0288d1',
+              },
+              styles.containerMenu,
+            ]}
+            onPress={() => navigation.navigate('SaHinh_LyThuyet_Screen')}>
+            <Icon
+              size={42}
+              name="road"
+              color="white"
+              underlayColor="#00000000"
+              style={styles.icon}
+            />
+            <Text style={styles.text}>Sa hình - Lý thuyết</Text>
           </Pressable>
         </View>
       </ScrollView>

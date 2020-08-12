@@ -14,9 +14,9 @@ const adUnitId =
 const interstitial = InterstitialAd.createForAdRequest(adUnitId);
 
 const Interstitial = () => {
-  const [loaded, setLoaded] = useState(false);
+  /*const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
+   useEffect(() => {
     const showInterstitialAd = () => {
       interstitial.onAdEvent((type, error) => {
         if (type === AdEventType.LOADED) {
@@ -29,7 +29,7 @@ const Interstitial = () => {
     };
     showInterstitialAd();
     return () => {};
-  }, []);
+  }, []); */
   return <></>;
 };
 

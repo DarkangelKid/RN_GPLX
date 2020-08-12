@@ -1,229 +1,402 @@
 const html = `<html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
-         body {  font-family: sans-serif; } pre { background-color: #eeeeee; padding: 1em; white-space: pre-wrap; } .note { font-style: italic; color: #777; } a:link, a:visited { color: #258aaf; text-decoration: none; } a:hover, acronym:hover { color: #7aa1b0 !important; } .content { width: auto;}
+        body {
+            font-family: sans-serif;
+        }
+
+        pre {
+            background-color: #eeeeee;
+            padding: 1em;
+            white-space: pre-wrap;
+        }
+
+        .note {
+            font-style: italic;
+            color: #777;
+        }
+
+        a:link,
+        a:visited {
+            color: #258aaf;
+            text-decoration: none;
+        }
+
+        a:hover,
+        acronym:hover {
+            color: #7aa1b0 !important;
+        }
+
+        .content {
+            width: auto;
+        }
     </style>
 </head>
+
 <body>
-<div class="content"><span class="note">(Hệ thống cảm biến điện tử trên sân sát hạch tại Trung tâm sát hạch sẽ thực hiện chấm điểm tự động, nếu không bị lỗi thì điểm tối đa là 100 điểm. Điểm đậu là từ 80 điểm trở lên).<br/>Tổng thời gian toàn bộ bài thi là 15 phút, thời gian mỗi bài thi sẽ được tính từ khi vào bài thi (vạch màu trắng trên đường) đến khi ra khỏi bài thi.</span>
-    <h2><a name="tableOfContents">Có 10 bài thi chính và 2 bài thi phụ:</a></h2>
-    <ol>
-        <li><a href="#bai1">Xuất phát</a></li>
-        <li><a href="#bai2">Dừng xe nhường đường cho người đi bộ.</a></li>
-        <li><a href="#bai3">Dừng xe, khởi hành trên dốc lên (thường gọi là đề-pa lên dốc).</a></li>
-        <li><a href="#bai4">Đi xe qua hàng đinh.</a></li>
-        <li><a href="#bai5">Đi xe qua đường vuông góc (chữ Z).</a></li>
-        <li><a href="#bai6">Đi xe qua đường vòng quanh co (chữ S).</a></li>
-        <li><a href="#bai7">Ghép xe vào nơi đỗ (lùi nhà xe).</a></li>
-        <li><a href="#bai8">Dừng xe nơi giao nhau với đường sắt.</a></li>
-        <li><a href="#bai9">Tăng tốc, tăng số.</a></li>
-        <li><a href="#bai10">Kết thúc.</a></li>
-        <li><a href="#bai11">Bài phụ: Dừng xe nguy hiểm.</a></li>
-        <li><a href="#bai12">Bài phụ: Qua ngã tư có tín hiệu điều khiển giao thông.</a></li>
-    </ol>
-    <p/>Khi lái xe trong sa hình bạn cần phải đi chậm, thật chậm. Đi chậm sẽ giúp ta đánh lái được
-    chính xác, không vội vàng (khi qua chữ Z, chữ S, lùi vào ga ra), có thời gian căn chỉnh bánh xe
-    khi đi vào hàng đinh, dừng đúng chỗ và nhẹ nhàng tại điểm dừng xe nhường đường cho người đi bộ,
-    trên dốc và trước đường sắt.<p/>Các xe thi thường để ga-răng-ti cao nên vào số 1, không đặt vào
-    chân ga thì xe đi cũng đã khá nhanh. Vì vậy muốn xe đi chậm thì phải đỡ được côn, tức là chân
-    trái ấn côn vào sâu gần hết (không ấn hết côn) và giữ nguyên ở mức đó cho đến khi xe đi chậm như
-    mình mong muốn. Đỡ được côn và rà phanh sẽ giúp bạn điều khiển chiếc xe được theo ý mình.<p/>
-    <h2><a name="bai1">Bài 1. Xuất phát</a></h2>Trước lúc xuất phát, khi mới lên xe, bạn cần :
-    <ul>
-        <li>Kiểm tra lại ghế ngồi xem có phù hợp với người không, nếu cần thiết thì chỉnh xa vành
-            tay lái hoặc gần lại để đạp hết được côn, phanh, ga.
-        </li>
-        <li>Kiểm tra hai gương sao cho nhìn thấy được điểm bánh xe sau tiếp xúc với mặt đường.</li>
-        <li>Cài dây an toàn, để máy nổ và chờ lệnh xuất phát.</li>
-        <li>Khi có lệnh xuất phát (Đèn màu xanh trong xe bật sáng, loa phát lệnh “Xe số xxx xuất
-            phát”), bạn thực hiện như sau:
-        </li>
-        <ul>
-            <li>Bật đèn xi–nhan trái.</li>
-            <li>Vào số 1, nhả côn từ từ để xe đi.</li>
-            <li>Khi đèn xanh trong xe tắt hoặc khi qua vạch xuất phát khoảng 5 m thì tắt đèn
-                xi-nhan.
-            </li>
-            <li>Khi xe đã đi, bạn có thể nhả hết côn ra cho xe tự bò, không cần đặt chân vào bàn đạp
-                ga. Và đi đến bài số 2.
-            </li>
-        </ul>
-    </ul>
-    <h3>Các lỗi:</h3><h5>Lỗi nhẹ: (Mỗi lỗi trừ 5 điểm)</h5>
-    <ul>
-        <li>Không thắt dây an toàn.</li>
-        <li>Không bật đèn xi nhan trái khi xuất phát.</li>
-        <li>Không tắt đèn xi nhan sau khi xe qua vạch xuất phát 5m.</li>
-        <li>Quá 20 giây sau khi có lệnh xuất phát (đèn xanh sáng) mà xe chưa đi qua vạch xuất
-            phát.
-        </li>
-        <li>Xe chết máy khi đã có lệnh xuất phát.</li>
-        <li>Để tốc độ động cơ quá 4000 vòng/phút (Đạp ga quá lớn).</li>
-    </ul>
-    <h5>Lỗi nặng: (Bị loại)</h5>
-    <ul>
-        <li>Quá 10 giây mà xe chưa qua được vạch xuất phát.</li>
-        <li>Gây tai nạn.</li>
-    </ul>
-    <a href="#tableOfContents">Về đầu trang</a>
-    <h3><a name="bai2">Bài 2. Dừng xe nhường đường cho người đi bộ</a></h3> Yêu cầu của bài này là
-    dừng xe đúng chỗ trước vạch trắng và đường vằn dành cho người đi bộ (cản xe phía trước cách vạch
-    dừng không quá 0,5m).<p/>Đỗ già quá (chạm vào vạch trắng) hoặc non quá (quá xa vạch trắng) đều
-    bị trừ 5 điểm.<p/>Các sân thi thường "giúp" học viên bằng cách đánh dấu sẵn bằng vạch trên cọc
-    biển báo hiệu. Nếu khi vai người lái xe (hoặc Nút chốt cửa hoặc vạch trên cửa xe) đến ngang cọc
-    đó thì phải dừng.<p/>Sau khi xuất phát, bạn để xe đi chậm. Khi xe vừa tới vị trí thì đạp côn và
-    ấn nhẹ phanh là xe dừng.<p/>Dừng xe xong, bạn lại nhả côn cho xe đi tiếp luôn. Dừng lâu quá 30
-    giây sẽ bị trừ điểm.<p/><span class="note"><b><u>Mẹo</u></b>: Cách điểm đến 5m, đạp hết côn cho xe chạy từ từ theo đà, để sẳn chân trên thắng (phanh), vươn người để đưa tầm mắt ngang với vạch trên cửa xe và ngắm ra vạch trên sân thi, khi thấy thẳng hàng thì đạp mạnh châng thắng (chân phanh). Mẹo này áp dụng cho cả bài thi qua đường sắt và bài thi lên dốc nếu muốn ăn trọn điểm.</span>
-    <h4>Các lỗi:</h4> <h5>Lỗi nhẹ: (mỗi lỗi trừ 5 điểm)</h5>
-    <ul>
-        <li>Dừng xa vạch (quá 0,5 m).</li>
-        <li>Dừng quá vạch.</li>
-        <li>Xe chết máy.</li>
-        <li>Để tốc độ động cơ quá 4000 vòng/phút (Đạp ga quá lớn).</li>
-    </ul>
-    <h5>Lỗi nặng: (Bị loại)</h5>
-    <ul>
-        <li>Quá 30 giây mà xe chưa qua được vạch xuất phát.</li>
-        <li>Gây tai nạn.</li>
-    </ul>
-    <a href="#tableOfContents">Về đầu trang</a>
-    <h3><a name="bai3">Bài 3. Dừng xe, khởi hành ngang dốc</a></h3>Yêu cầu của bài này là xe không
-    vượt quá vạch quy định, không bị tuột dốc quá 50 cm, phải vượt khỏi dốc trong khoảng thời gian
-    30 giây (nếu bị các lổi này sẽ bị loại).<p/>Không được tăng ga quá lớn (số vòng quay động cơ
-    trên quá 3 hoặc 4 nghìn vòng/phút). Chính vì nếu vượt quá vạch quy định là bị loại ngay nên
-    nhiều người đành phải đỗ non khi chưa đến đúng vị trí, chấp nhận mất 5 điểm cho chắc ăn.<p/>Sau
-    khi qua bài 2, bạn nhả hết côn, phanh cho xe tự bò lên dốc. Về bản chất, bài này giống bài 2 ở
-    chỗ dừng xe rồi lại đi tiếp. Nhưng vì xe đang ở trên dốc nên bạn không thể đỡ côn cho xe đi chậm
-    lại vì nếu đỡ côn thì xe sẽ bị trôi ngược về chân dốc. Vì thế, chỉ có thể nhắm đúng vị trí cần
-    đỗ (qua vạch đỏ trên ta-luy hoặc mặt đường) để đạp côn, phanh đúng lúc.<p/>Nếu như ở bài 2, sau
-    khi dừng xe, để đi tiếp bạn chỉ việc bỏ chân phanh ra rồi mới từ từ nhả côn. Nhưng ở bài 3 thì
-    không thể làm như vậy vì xe đang trên dốc, bỏ phanh chân ra thì xe sẽ trôi. Do vậy cách xử lý ở
-    bài 3 khác bài 2.<p/>
-    <p>Có hai cách xử lý:</p>
-    <ul>
-        <li>Cách 1: Là cách dạy chính thống trong trường. Sau khi xe đã dừng trên dốc, bạn kéo phanh
-            tay với mục đích là thay phanh chân giữ xe tại điểm dừng. Khi đó, bạn có thể bỏ chân
-            phanh ra và đặt vào chân ga mớm lên. Đồng thời chân trái nhả côn từ từ, đến khi thấy tay
-            lái hoặc cần số rung lên (báo hiệu các lá côn đã bắt vào nhau) thì nhả nhẹ phanh tay,
-            nghe ngóng nếu thấy xe không trượt thì thả nốt phanh tay, xe sẽ tự bò lên.
-        </li>
-        <li>Cách 2: Là cách các lái già thường làm trong thực tế, không dùng đến phanh tay.<br/>Sau
-            khi canh cho núm cửa gần tới ngang cọc biển báo vạch xe dừng thì bạn đạp côn, thắng dừng
-            xe.<br/>Sau đó bạn nhả côn từ từ (thật chậm), đến khi thấy tay lái hoặc cần số rung rung
-            thì nhả nhẹ phanh chân, nghe ngóng. Nếu cảm thấy xe trôi thì đạp phanh vào, làm lại. Nếu
-            thấy xe không trượt thì thả cho hết phanh chân, xe sẽ tự bò lên. Nếu nhả hết phanh chân
-            mà xe vẫn đứng yên thì tiếp vào chân ga một chút, đồng thời hơi nhả côn ra thêm. (Chú ý
-            nếu nhả côn nhanh quá xe có thể bị tắt máy (bị trừ điểm). Bạn phải nhanh chóng đề xe lại
-            và tiếp tục bài)Khi xe đã đi thì giữ nguyên vị trí chân côn và ga cho đến khi xe qua
-            khỏi đỉnh dốc. Nhiều người mới học lại thấy cách làm này dễ hơn cách 1, vì không cần
-            dùng đến phanh tay mà chỉ tập trung vào hai chân điều chỉnh côn, phanh (thực tế khi hạ
-            phanh tay, những người chưa quen có thể bị choạng tay lái hoặc ấn mạnh vào bàn đạp ga
-            làm rú ga).
-        </li>
-    </ul>
-    <span class="note"><b><u>Chú ý</u></b>: Vì bài này nếu để xe quá vạch quy định bị loại luôn, để an toàn các bạn nên cho dừng xe sớm trước vạch chấp nhận bị trừ 5 điểm.</span>
-    <p/><a href="#tableOfContents">Về đầu trang</a>
-    <h3><a name="bai4">Bài 4. Đi xe qua hàng đinh</a></h3>Yêu cầu của bài này là hai bánh xe bên
-    phải phải đi lọt qua một đoạn đường có bề rộng khoảng 30-35 cm (dấu B). Mỗi lần bánh xe chạm
-    vạch là bị trừ 5 điểm (Mỗi 2 giây).<p/>Khi rẽ vào đường đi hàng đinh, bạn nên đánh lái muộn một
-    chút để xe áp sát lề đường bên phải xe. Đi thật chậm và nhìn gương phải để quan sát bánh xe phía
-    sau. Các sân thi thường kẻ sẵn vạch để giúp học viên căn đường. Vạch này bằng với mép ngoài của
-    hàng đinh. Vì vậy, nếu bánh xe cách vạch đỏ khoảng 10-15 cm thì nhiều khả năng xe sẽ đi qua hàng
-    đinh mà không chạm mép hai bên.<p/>Ngoài việc nhìn gương phải, bạn cũng phải căn và bám vào một
-    điểm mốc ở phía trước, thường là một vạch đánh dấu trên lề đường trước mặt. Vì có khi lúc đầu xe
-    đi đúng khoảng cách với vạch căn bên phải, nhưng sau đó do giữ lái không tốt nên xe bị chệch
-    hướng.<p/><span class="note"><b><u>Chú ý</u></b>: Nếu bánh xe bên phải đi ngoài hàng đinh thì sẽ bị loại.</span>
-    <p/><a href="#tableOfContents">Về đầu trang</a>
-    <h3><a name="bai5">Bài 5. Đi xe qua đường vuông góc (chữ Z)</a></h3>Yêu cầu của bài này là khi
-    cho xe đi không bị chạm vạch ở gần vỉa hè hai bên đường, nếu chạm vạch trừ 5 điểm. Bạn phải đi
-    thật chậm khi vào vuông góc (bằng cách ép côn một phần (Vê côn) để đánh tay lái kịp thời.<p/>Sau
-    khi đi qua hàng đinh, bạn thấy gương chiếu hậu ngang với góc bên trái thì đánh hết lái sang trái
-    đồng thời quan sát gương chiếu hậu và trả lái phù hợp để thành xe song song với vạch giới hạn và
-    cách 30-40cm khi song song thì trả thẳng lái tiến đến góc vuông thứ 2.<p/>Qua sát khi thấy gương
-    chiếu hậu bên phải ngang với góc thứ 2 bên phải thì đánh hết lái sang phải đồng thời quan sát
-    gương chiếu hậu và trả lái phù hợp để thành xe song song với vạch giới hạn và cách 30-40cm khi
-    song song thì trả thẳng lái tiến ra khỏi hình.<p/>Để có thể đánh hết lái và trả lái cho nhanh,
-    trong quá trình học bạn nên tập cho thuần thục động tác xoay vô-lăng. Phương pháp hiện nay là
-    khi rẽ bên phải thì tay trái sẽ là tay chính, không rời khỏi vô-lăng trong suốt lúc xoay, còn
-    tay phải chỉ dùng để kéo vành lái phía bên phải nhằm hỗ trợ khi tay trái di chuyển xuống điểm
-    dưới của vô-lăng (lúc đó lực xoay của tay trái không được mạnh). Đối với rẽ trái thì quá trình
-    ngược lại, tay phải là tay xoay chính, tay trái hỗ trợ. Khi trả lái cũng tương tự.<p/><a
-            href="#tableOfContents">Về đầu trang</a>
-    <h3><a name="bai6">Bài 6. Đi xe qua đường vòng quanh co (chữ S)</a></h3>Yêu cầu của bài này
-    giống bài 5 (mỗi lần bánh xe chạm vạch trừ 5 điểm).<p/>Khác với bài 5, do chữ S là đường cong
-    liên tục nên bạn phải điều chỉnh tay lái theo đường cong. Các lái xe có câu "Tiến bám lưng, lùi
-    bám bụng", có nghĩa là khi xe vào đường cua (ôm cua) nên căn theo phía đường cong dài hơn. Như
-    vậy, khi vào đường chữ S, bạn cho xe bám sát về bên phải, đánh lái sang trái cho xe đi nửa vòng
-    cua đầu tiên, sau đó lại bám sang lề đường bên trái, trả lái và đánh lái sang phải cho xe qua
-    nốt nửa vòng cua còn lại.<p/><a href="#tableOfContents">Về đầu trang</a>
-    <h3><a name="bai7">Bài 7. Ghép xe vào nơi đỗ (lùi vào nhà xe)</a></h3>Yêu cầu của bài này là
-    trong vòng 2 phút bạn phải cho xe lùi được vào nơi đỗ (nhà xe), không chạm vạch và tiến ra khỏi
-    nhà xe.<p/><h4>Các lỗi:</h4>
-    <ul>
-        <li>Mỗi lần bánh xe chạm vạch trừ 5 điểm (mỗi 2 giây)</li>
-        <li>Quá thời gian 2 phút trừ 5 điểm (Mỗi 2 phút trừ 5 điểm)
-        <li>
-        <li>Bánh xe không chạm được vạch kiểm tra cuối nhà xe bị loại (Máy không báo)
-        <li>
-        <li>Không hạng xe bị loại (nhầm nhà xe hạng xe khác)
-        <li>
-    </ul>
-    Khi bắt đầu rẽ vào khu vực nhà xe, bám sát lề đường bên trái cách khoảng (30 cm – 50cm). Đi
-    chậm(Số 1) khi (vai người lái) đi ngang qua cửa nhà xe thì đánh hết lái về bên phải, tiếp tục
-    cho xe tiến lên khi thấy thân xe có góc khoảng 40-45 độ so với đường ngang cửa nhà xe thì trả
-    thẳng lái và dừng lại trước vạch giới hạn.<p/>Sau đó nhìn kiếng chiếu hậu bên trái quan sát phía
-    sau (bánh xe, thân xe và góc nhà xe) - xem thế xe rồi vào số lùi, tùy theo thế xe “lơi “ hay
-    “dốc “ mà ta đánh tay lái sang trái nhiều hay ít, điều chỉnh sau cho bánh xe sau khi lùi vào
-    cách góc nhà xe khoảng 10-15 cm – khi bánh xe sắp đến góc nhà xe thì đánh nhiều lái sang trái
-    cho xe lùi vào bên trong nhà xe – quan sát thấy thành xe, bánh xe song song với nhà xe và cách
-    vạch giới hạn 20cm -30 cm thì trả thẳng lái và lùi vào cho đến khi bánh xe sau đè lên vạch kiểm
-    tra và nghe máy báo “Đã kiểm tra“ thì dừng lại.<p/>Cài số 1 và tiến ra khỏi nhà xe.Lưu ý khi
-    tiến ra, người phải ra khỏi cửa nhà xe hoặc hơn một chút nữa bạn hãy đánh lái rẽ sang phải để
-    tránh trường hợp bánh sau chưa ra khỏi cửa nhà xe mà đã rẽ sẽ bị chèn vạch, trừ điểm.Nếu lỡ lùi
-    chưa chính xác, đuôi xe cách xa cửa nhà xe, có thể chèn lên vạch hoặc vỉa ba-toa, bạn cứ bình
-    tĩnh về lại số 1, tiến lên phía trước, đánh lái sao cho xe ở vào vị trí thẳng trước cửa nhà xe,
-    sau đó vào số lùi để làm lại việc lùi vào nhà xe. (Gọi là lùi xe 2 đỏ)<p/><a
-            href="#tableOfContents">Về đầu trang</a>
-    <h3><a name="bai8">Bài 8. Dừng xe nơi giao nhau với đường sắt</a></h3>Yêu cầu và thực hành của
-    bài này giống bài 2.<p/><a href="#tableOfContents">Về đầu trang</a>
-    <h3><a name="bai9">Bài 9. Tăng tốc, tăng số</a></h3>Yêu cầu của bài này là phải lên được số 2 và
-    đạt tốc độ trên 20 km/h trước biển báo 20 màu xanh (biển báo tốc độ tối thiểu phải đạt 20 km/h),
-    sau đó lại phải về số 1 và giảm tốc độ xuống dưới 20 km/h trước biển báo 20 màu trắng (biển báo
-    tốc độ tối đa không quá 20 km/h).<p/>Sau khi qua nơi giao nhau với đường sắt, bạn rẽ sang đường
-    chuẩn bị tăng tốc. Chỉnh lái cho xe thẳng, giữ chắc tay lái, nhả hết côn, phanh. Qua biển "Tăng
-    số, tăng tốc" (Bảng vuông) Nhấn ga để xe tăng tốc,rồi khẩn trương sang số 2, tiếp tục nhấn ga
-    tiếp (nữa ga là đủ đạt tốc độ). Qua biển 20 màu xanh,nhả ga, rà phanh, cho xe đi chậm lại, thậm
-    chí dừng hẳn, về số 1 từ từ để xe đi qua biển 20 màu trắng.<p/>Chú ý là bạn không được cắt côn
-    để xe trôi từ từ qua biển 20 màu trắng, vì yêu cầu ở đây là bạn phải đi qua biển này khi xe có
-    gài số. Vì thế nếu bạn cắt côn làm bánh răng số không quay thì sẽ bị trừ 5 điểm.<p/><a
-            href="#tableOfContents">Về đầu trang</a>
-    <h3><a name="bai10">Bài 10. Kết thúc</a></h3>Yêu cầu của bài này là đi thẳng qua vạch kết thúc,
-    trước đó phải bật đèn xi-nhan phải (với ý nghĩa là xe tấp vào lề đường bên phải, chuẩn bị dừng
-    hoặc đỗ xe).<p/>Sau khi vòng qua ngã tư lần cuối cùng, bạn chỉnh xe cho thẳng và để xe đi từ từ
-    về vạch xuất phát. Bật xi-nhan bên phải. Chú ý sau khi đã bật xi-nhan thì giữ thẳng tay lái,
-    không đánh lái sang trái sẽ làm tắt đèn xi-nhan, mất điểm. Để cho chắc ăn, bạn có thể dùng ngón
-    giữa tay trái giữ cần xi-nhan để không cho cần này bật xuống, hoặc hơi đánh lái sang phải một
-    chút.<p/><a href="#tableOfContents">Về đầu trang</a>
-    <h3><a name="bai11">Bài phụ: Dừng xe nguy hiểm</a></h3>
-    <p>Có 3 điểm xuất hiện bài thi phụ bao gồm:</p>
-    <ul>
-        <li>Qua ngã tư đèn xanh, đèn đỏ vào đoạn đường trước khi rẽ trái vào bài 8.</li>
-        <li>Sau khi qua khỏi bài 9 và rẽ trái vào đoạn đường tiếp theo.</li>
-        <li>Đoạn đường trước khi đến ngã tư để vào bài 10.</li>
-    </ul>
-    Khi xe đi qua một số vị trí trên tuyến đường thi (một trong các vị trí trên), loa trong xe có
-    thể vang lên "Dừng xe nguy hiểm! Dừng xe nguy hiểm!". Khi nghe hiệu lệnh này, bạn nhanh chóng
-    dừng hẳn xe, ấn vào nút đèn báo hiệu nguy hiểm (nút có vẽ hình tam giác). Khi nào loa hết hiệu
-    lệnh trên thì nhẩm từ 1 đến 5 sau đó ấn nút lần nữa để tắt đèn và đi tiếp.<p/>Bài thi này chỉ
-    xuất hiện một lần ở một trong ba điểm nêu trên.<p/><a href="#tableOfContents">Về đầu trang</a>
-    <h3><a name="bai12">Bài phụ: Qua ngã tư có tín hiệu điều khiển giao thông</a></h3>
-    <p/>Chấp hành theo tín hiệu điều khiển giao thông: Đèn tín hiệu màu xanh hoặc vàng được phép đi.<br/>Dừng
-    xe để khoảng cách từ hình chiếu thanh cản phía trước của xe xuống mặt đường đến vạch dừng
-    (khoảng cách A) không quá 500mm.<br/>Bật đèn xi nhan trái qua ngã tư rẽ trái;<br/>Bật đèn xi
-    nhan phải khi qua ngã tư rẽ phải;<br/>Lái xe qua ngã tư trong thời gian quy định.<br/>Lái xe qua
-    ngã tư không vi phạm vạch kẻ đường.<p/><a href="#tableOfContents">Về đầu trang</a></div>
+    <div class="content">
+        <h2><a name="tableOfContents">Phần thi thực hành lái xe trong hình có các bài thi sau đây:</a></h2>
+        <ol>
+            <li><a href="#bai1">Xuất phát</a></li>
+            <li><a href="#bai2">Dừng xe nhường đường cho người đi bộ</a></li>
+            <li><a href="#bai3">Dừng và khởi hành xe ngang dốc</a></li>
+            <li><a href="#bai4">Qua vệt bánh xe, đường hẹp vuông góc</a></li>
+            <li><a href="#bai5">Qua ngã tư có tín hiệu điều khiển giao thông</a></li>
+            <li><a href="#bai6">Qua đường vòng quanh co</a></li>
+            <li><a href="#bai7">Ghép xe vào nơi đỗ- Ghép Dọc + Ghép ngang</a></li>
+            <li><a href="#bai8">Tạm dừng ở chỗ có đường sắt đi qua</a></li>
+            <li><a href="#bai9">Thay đổi số trên đường bằng</a></li>
+            <li><a href="#bai10">Kết thúc.</a></li>
+            <li><a href="#bai13">Tình huống nguy hiểm.</a></li>
+        </ol>
+        <p />Khi lái xe trong sa hình bạn cần phải đi chậm, thật chậm. Đi chậm sẽ giúp ta đánh lái được
+        chính xác, không vội vàng (khi qua chữ Z, chữ S, lùi vào ga ra), có thời gian căn chỉnh bánh xe
+        khi đi vào hàng đinh, dừng đúng chỗ và nhẹ nhàng tại điểm dừng xe nhường đường cho người đi bộ,
+        trên dốc và trước đường sắt.
+        <p />Các xe thi thường để ga-răng-ti cao nên vào số 1, không đặt vào
+        chân ga thì xe đi cũng đã khá nhanh. Vì vậy muốn xe đi chậm thì phải đỡ được côn, tức là chân
+        trái ấn côn vào sâu gần hết (không ấn hết côn) và giữ nguyên ở mức đó cho đến khi xe đi chậm như
+        mình mong muốn. Đỡ được côn và rà phanh sẽ giúp bạn điều khiển chiếc xe được theo ý mình.
+        <p />
+        <h2><a name="bai1">Bài 1. Xuất phát</a></h2>
+        <h3>- Các bước thực hiện : </h3>
+        <p>1. Thí sinh thắt dây an toàn, dừng xe trước vạch xuất phát, chờ hiệu lệnh;</p>
+        <p>2.Khi có lệnh xuất phát (đèn xanh trên xe bật sáng, tiếng loa trên xe báo lệnh xuất phát), bật đèn xi nhan
+            trái, lái xe xuất phát;</p>
+        <p>3.Tắt xi nhan trái ở khoảng cách 5 mét sau vạch xuất phát (đèn xanh trên xe tắt);</p>
+        <p>4.Lái xe đến bài sát hạch tiếp theo.</p>
+
+        <h3>- Yêu cầu đạt được :</h3>
+        <p>1.Thắt dây an toàn trước khi xuất phát;</p>
+        <p>2.Khởi hành nhẹ nhàng, không bị rung giật, trong khoảng thời gian 20 giây;</p>
+        <p>3.Bật đèn xi nhan trái trước khi xuất phát;</p>
+        <p>4.Tắt đèn xi nhan trái ở khoảng cách 5 mét sau vạch xuất phát (đèn xanh trên xe tắt); </p>
+        <p>5.Giữ động cơ hoạt động liên tục;</p>
+        <p>6.Giữ tốc độ động cơ không quá 4000 vòng/phút;</p>
+        <p>7.Lái xe theo quy tắc giao thông đường bộ.</p>
+        <p>8.Tốc độ xe chạy không quá:</p>
+        <p>-24 km/h đối với hạng B, D</p>
+        <p>-20 km/h đối với hạng C, E</p>
+        <h3>- Các lỗi bị trừ điểm:</h3>
+        <p>1.Không thắt dây an toàn, bị trừ 05 điểm;</p>
+        <p>2.Không bật đèn xi nhan trái khi xuất phát, bị trừ 05 điểm;</p>
+        <p>3.Không tắt đèn xi nhan trái ở khoảng cách 05 mét sau vạch xuất phát (đèn xanh trên xe tắt), bị trừ 05 điểm;
+        </p>
+        <p>4.Không bật và tắt đèn xi nhan trái kịp thời bị trừ 05 điểm;</p>
+        <p>5.Quá 20 giây kể từ khi có lệnh xuất phát (đèn xanh trên xe bật sáng) không đi qua vạch xuất phát, bị trừ 05
+            điểm;</p>
+        <p>6.Quá 30 giây kể từ khi có lệnh xuất phát (đèn xanh trên xe bật sáng) không đi qua vạch xuất phát, bị truất
+            quyền sát hạch.</p>
+        <p>7.Lái xe lên vỉa hè bị truất quyền sát hạch;</p>
+        <p>8.Xử lý tình huống không hợp lý gây tai nạn, bị truất quyền sát hạch;</p>
+        <p>9.Lái xe bị chết máy, mỗi lần bị trừ 05 điểm;</p>
+        <p>10.Để tốc độ động cơ quá 4000 vòng/phút, mỗi lần bị trừ 05 điểm;</p>
+        <p>11. Lái xe quá tốc độ quy định, cứ 3 giây bị trừ 01 điểm.</p>
+
+        <a href="#tableOfContents">Về đầu trang</a>
+
+
+        <h3><a name="bai2">Bài 2. Dừng xe nhường đường cho người đi bộ</a></h3>
+        <h3>- Các bước thực hiện : </h3>
+        <p>1.Dừng xe để khoảng cách từ hình chiếu thanh cản phía trước của xe xuống mặt đường đến vạch dừng (khoảng cách
+            A) không quá 500mm;</p>
+        <p>2.Lái xe đến bài sát hạch tiếp theo.</p>
+        <h3>- Yêu cầu đạt được : </h3>
+        <p>1.Dừng xe cách vạch dừng quy định không quá 500mm;</p>
+        <p>2.Giữ động cơ hoạt động liên tục;</p>
+        <p>3.Giữ tốc độ động cơ không quá 4000 vòng/phút;</p>
+        <p>4.Lái xe theo quy tắc giao thông đường bộ.</p>
+        <p>5.Tốc độ xe chạy không quá:</p>
+        <p>-24 km/h đối với hạng B, D</p>
+        <p>-20 km/h đối vớihạng C, E</p>
+        <h3>-Các lỗi bị trừ điểm:</h3>
+        <p>1.Không dừng xe ở vạch dừng quy định, bị trừ 05 điểm;</p>
+        <p>2.Dừng xe chưa đến vạch dừng quy định (A > 500mm), bị trừ 05 điểm;</p>
+        <p>3.Dừng xe quá vạch dừng quy định, bị trừ 05 điểm.</p>
+        <p>4.Lái xe lên vỉa hè bị truất quyền sát hạch;</p>
+        <p>5.Xử lý tình huống không hợp lý gây tai nạn, bị truất quyền sát hạch;</p>
+        <p>6.Lái xe bị chết máy, mỗi lần bị trừ 05 điểm;</p>
+        <p>7.Để tốc độ động cơ quá 4000 vòng/phút, mỗi lần bị trừ 5 điểm;</p>
+        <p>8.Lái xe quá tốc độ quy định, cứ 3 giây bị trừ 01 điểm.</p>
+        <p>9.Tổng thời gian đến bài sát hạch đang thực hiện quá quy định, cứ 03 giây bị trừ 01 điểm;</p>
+        <p>10.Điểm sát hạch dưới 80 điểm, bị truất quyền sát hạch.</p>
+
+        <a href="#tableOfContents">Về đầu trang</a>
+
+        <h3><a name="bai3">Bài 3 : Dừng và khởi hành xe ngang dốc </a></h3>
+        <h3>- Các bước thực hiện : </h3>
+        <p>1.Dừng xe để khoảng cách từ hình chiếu thanh cản phía trước của xe xuống mặt đường đến vạch dừng (khoảng cách
+            A) không quá 500mm;
+        <p>2.Khởi hành lên dốc nhẹ nhàng, không bị tụt dốc, bảo đảm thời gian quy định;
+        <p>3.Lái xe đến bài sát hạch tiếp theo.
+        <h3>- Yêu cầu đạt được : </h3>
+        <p>1.Dừng xe cách vạch dừng quy định không quá 500mm;</p>
+        <p>2.Khởi hành xe êm dịu, không bị tụt dốc quá 500mm;</p>
+        <p>3.Xe qua vị trí dừng trong khoảng thời gian 30 giây;</p>
+        <p>4.Giữ động cơ hoạt động liên tục;</p>
+        <p>5.Giữ tốc độ động cơ không quá 4000 vòng/phút;</p>
+        <p>6.Lái xe theo quy tắc giao thông đường bộ;</p>
+        <p>7.Tốc độ xe chạy không quá:</p>
+        <p>-24 km/h đối với hạng B, D</p>
+        <p>-20 km/h đối vớihạng C, E</p>
+        <h3>-Các lỗi bị trừ điểm:</h3>
+        <p>1.Không dừng xe ở vạch dừng quy định, bị truất quyền sát hạch;</p>
+        <p>2.Dừng xe chưa đến vạch dừng quy định (A > 500mm), bị trừ 05 điểm;</p>
+        <p>3.Dừng xe quá vạch dừng quy định, bị truất quyền sát hạch;</p>
+        <p>4.Quá thời gian 30 giây kể từ khi dừng xe không khởi hành xe qua vạch dừng, bị truất quyền sát hạch;</p>
+        <p>5.Xe bị tụt dốc quá 50 cm kể từ khi dừng xe, bị truất quyền sát hạch;</p>
+        <p>6.Xử lý tình huống không hợp lý gây tai nạn, bị truất quyền sát hạch;</p>
+        <p>7.Xe bị chết máy, mỗi lần bị trừ 05 điểm;</p>
+        <p>8.Để tốc độ động cơ quá 4000 vòng/phút, mỗi lần bị trừ 05 điểm;</p>
+        <p>9.Lái xe quá tốc độ quy định, cứ03 giây bị trừ 01 điểm.</p>
+        <p>10.Tổng thời gian đến bài sát hạch đang thực hiện quá quy định, cứ 03 giây bị 1 trừ 1 điểm;</p>
+        <p>11.Điểm sát hạch dưới 80 điểm, bị truất quyền sát hạch.</p>
+
+
+        <a href="#tableOfContents">Về đầu trang</a>
+
+        <h3><a name="bai4">Bài 4 : Qua vệt bánh xe, đường hẹp vuông góc</a></h3>
+        <h3>-Các bước thực hiện : </h3>
+        <p>1.Lái xe để bánh xe trước và bánh xe sau bên lái phụ qua vùng giới hạn của hình vệt bánh xe;</p>
+        <p>2.Lái xe qua đường vòng vuông góc trong vùng giới hạn của hình sát hạch trong thời gian 2 phút;</p>
+        <p>3.Lái xe qua vạch kết thúc bài sát hạch và đến bài sát hạch tiếp theo.</p>
+        <h3>-Yêu cầu thực hiện :</h3>
+        <p>1.Đi đúng hình quy định của hạng xe sát hạch;</p>
+        <p>2.Bánh xe trước và bánh xe sau bên lái phụ qua vùng giới hạn của hình vệt bánh xe;</p>
+        <p>3.Bánh xe không đè vào vạch giới hạn hình sát hạch;</p>
+        <p>4.Hoàn thành bài sát hạch trong thời gian 02 phút.</p>
+        <p>5.Giữ động cơ hoạt động liên tục;</p>
+        <p>6.Giữ tốc độ động cơ không quá 4000 vòng/phút;</p>
+        <p>7.Tốc độ xe chạy không quá:</p>
+        <p>-24 km/h đối với hạng B, D</p>
+        <p>-20 km/h đối với hạng C, E</p>
+        <h3>-Các lỗi bị trừ điểm:</h3>
+        <p>1.Đi không đúng hình của hạng xe sát hạch, bị truất quyền sát hạch;</p>
+        <p>2.Bánh xe trước và bánh xe sau bên lái phụ không qua vùng giới hạn của hình vệt bánh xe, bị truất quyền sát
+            hạch;</p>
+        <p>3.Bánh xe đè vào vạch giới hạn hình sát hạch, mỗi lần bị trừ 05 điểm;</p>
+        <p>4.Bánh xe đè vào vạch giới hạn hình sát hạch, cứ quá 05 giây, bị trừ 05 điểm;</p>
+        <p>5.Thời gian thực hiện bài sát hạch, cứ quá 02 phút, bị trừ 05 điểm.</p>
+        <p>6.Lái xe lên vỉa hè bị truất quyền sát hạch;</p>
+        <p>7.Xử lý tình huống không hợp lý gây tai nạn, bị truất quyền sát hạch;</p>
+        <p>8.Xe bị chết máy, mỗi lần bị trừ 05 điểm;</p>
+        <p>9.Để tốc độ động cơ quá 4000 vòng/phút, mỗi lần bị trừ 05 điểm;</p>
+        <p>10.Xe quá tốc độ quy định,cứ 03 giây bị trừ 01 điểm.</p>
+        <p>11. Tổng thời gian đến bài sát hạch đang thực hiện quá quy định, cứ 03 giây bị trừ 01 điểm; </p>
+        <p>12. Điểm thi dưới 80 điểm, bị truất quyền sát hạch.</p>
+
+        <a href="#tableOfContents">Về đầu trang</a>
+
+        <h3><a name="bai5">Bài 5 : Qua ngã tư có tín hiệu điều khiển giao thông</a></h3>
+        <h3>-Các bước thực hiện : </h3>
+        <p>1.Chấp hành theo tín hiệu đèn điều khiển giao thông:</p>
+        <p>- Đèn tín hiệu màu đỏ phải dừng lại;</p>
+        <p>- Đèn tín hiệu màu xanh hoặc vàng được phép đi.</p>
+        <p>2.Dừng xe để khoảng cách từ hình chiếu thanh cản phía trước của xe xuống mặt đường đến vạch dừng (khoảng cách
+            A) không quá 500mm;</p>
+        <p>3.Bật đèn xi nhan trái khi qua ngã tư rẽ trái;</p>
+        <p>4.Bật đèn xi nhan phải khi qua ngã tư rẽ phải;</p>
+        <p>5.Lái xe qua ngã tư trong thời gian quy định;</p>
+        <p>6. Lái xe qua ngã tư không vi phạm vạch kẻ đường;</p>
+        <p>7. Lái xe đến bài sát hạch tiếp theo.</p>
+        <h3>-Yêu cầu thực hiện :</h3>
+        <p>1.Chấp hành theo tín hiệu đèn điều khiển giao thông;</p>
+        <p>2.Dừng xe cách vạch dừng quy định không quá 500mm;</p>
+        <p>3.Bật đèn xi nhan trái khi rẽ trái;</p>
+        <p>4.Bật đèn xi nhan phải khi rẽ phải</p>
+        <p>5.Xe qua ngã tư trong thời gian 20 giây;</p>
+        <p>6.Lái xe qua ngã tư không vi phạm quy tắc giao thông đường bộ;</p>
+        <p>7.Giữ động cơ hoạt động liên tục;</p>
+        <p>8.Giữ tốc độ động cơ không quá 4000 vòng/phút;</p>
+        <p>9. Tốc độ xe chạy không quá:</p>
+        <p>- 24 km/h đối với hạng B, D</p>
+        <p>- 20 km/h đối với hạng C, E</p>
+        <h3>-Các lỗi bị trừ điểm:</h3>
+        <p>1.Vi phạm tín hiệu đèn điều khiển giao thông (đi qua ngã tư khi đèn tín hiệu màu đỏ), bị trừ 10 điểm;</p>
+        <p>2.Dừng xe quá vạch dừng quy định, bị trừ 05 điểm;</p>
+        <p>3.Dừng xe chưa đến vạch dừng quy định (A > 500mm), bị trừ 05 điểm;</p>
+        <p>4.Không bật đèn xi nhan khi rẽ trái hoặc rẽ phải, bị trừ 05 điểm;</p>
+        <p>5.Quá 20 giây từ khi đèn tín hiệu màu xanh bật sáng không lái xe qua được vạch kết thúc ngã tư, bị trừ 05
+            điểm;</p>
+        <p>6.Quá 30 giây từ khi đèn tín hiệu màu xanh bật sáng không lái xe qua được vạch kết thúc ngã tư, bị truất
+            quyền sát hạch;</p>
+        <p>7.Lái xe vi phạm vạch kẻ đường để thiết bị báo không thực hiện đúng trình tự bài thi, bị truất quyền sát
+            hạch.</p>
+        <p>8. Lái xe lên vỉa hè bị truất quyền sát hạch;</p>
+        <p>9. Xử lý tình huống không hợp lý gây tai nạn, bị truất quyền sát hạch;</p>
+        <p>10. Xe bị chết máy, mỗi lần bị trừ 05 điểm;</p>
+        <p>11. Để tốc độ động cơ quá 4000 vòng/phút, mỗi lần bị trừ 05 điểm;</p>
+        <p>12. Xe quá tốc độ quy định, cứ 03 giây bị trừ 01 điểm.</p>
+        <p>13. Tổng thời gian đến bài sát hạch đang thực hiện quá quy định, cứ 03 giây bị trừ 01 điểm;</p>
+        <p>14. Điểm sát hạch dưới 80 điểm, bị truất quyền sát hạch.</p>
+
+        <a href="#tableOfContents">Về đầu trang</a>
+
+        <h3><a name="bai6">Bài 6 : Qua đường vòng quanh co</a></h3>
+        <h3>-Các bước thực hiện : </h3>
+        <p>1.Lái xe qua đường vòng quanh co trong vùng giới hạn của hình sát hạch trong thời gian 2 phút;</p>
+        <p>2.Lái xe qua vạch kết thúc bài sát hạch và đến bài sát hạch tiếp theo.</p>
+        <h3>-Yêu cầu thực hiện :</h3>
+        <p>1.Đi đúng hình quy định của hạng xe sát hạch;</p>
+        <p>2.Bánh xe không đè vào vạch giới hạn hình sát hạch;</p>
+        <p>3.Hoàn thành bài sát hạch trong thờigian 02 phút.</p>
+        <p>4. Giữ động cơ hoạt động liên tục;</p>
+        <p>5. Giữ tốc độ động cơ không quá 4000 vòng/phút;</p>
+        <p>6. Tốc độ xe chạy không quá:</p>
+        <p>- 24 km/h đối với hạng B, D</p>
+        <p>- 20 km/h đối với hạng C, E</p>
+        <h3>-Các lỗi bị trừ điểm:</h3>
+        <p>1.Đi không đúng hình của hạng xe sát hạch, bị truất quyền sát hạch;</p>
+        <p>2.Bánh xe đè vào vạch giới hạn hình sát hạch, mỗi lần bị trừ 05 điểm;</p>
+        <p>3.Bánh xe đè vào vạch giới hạn hình sát hạch, cứ quá05 giây bị trừ 05 điểm;</p>
+        <p>4. Thời gian thực hiện bài sát hạch, cứ quá 02 phút, bị trừ 05 điểm.</p>
+        <p>5. Lái xe lên vỉa hè bị truất quyền sát hạch;</p>
+        <p>6. Xử lý tình huống không hợp lý gây tai nạn, bị truất quyền sát hạch;</p>
+        <p>7. Xe bị chết máy, mỗi lần bị trừ 05 điểm;</p>
+        <p>8. Để tốc độ động cơ quá 4000 vòng/phút, mỗi lần bị trừ 05 điểm;</p>
+        <p>9. Lái xe quá tốc độ quy định, cứ 03 giây bị trừ 01 điểm.</p>
+        <p>10. Tổng thời gian đến bài sát hạch đang thực hiện quá quy định, cứ 03 giây bị trừ 01 điểm;</p>
+        <p>11. Điểm sát hạch dưới 80 điểm, bị truất quyền sát hạch.</p>
+
+        <a href="#tableOfContents">Về đầu trang</a>
+
+        <h3><a name="bai7">Bài 7: Ghép xe vào nơi đỗ- Ghép Dọc + Ghép ngang</a></h3>
+        <h3>-Các bước thực hiện :</h3>
+        <p>1. Lái xe tiến vào khoảng cách khống chế để lùi vào nơi ghép xe dọc (đối với xe hạng B, C) hoặc khu vực để
+            ghép xe ngang (đối với xe hạng D, E);</p>
+        <p>2. Lùi để ghép xe vào nơi đỗ;</p>
+        <p>3. Dừng xe ở vị trí đỗ quy định;</p>
+        <p>4. Lái xe qua vạch kết thúc bài sát hạch và đến bài sát hạch tiếp theo.</p>
+        <h3>-Yêu cầu thực hiện : </h3>
+        <p>1. Đi đúng hình quy định của hạng xe sát hạch;</p>
+        <p>2. Bánh xe không đè vào vạch giới hạn hình sát hạch;</p>
+        <p>3. Giữ động cơ hoạt động liên tục;</p>
+        <p>4. Hoàn thành bài sát hạch trong thời gian 02 phút.</p>
+        <p>5. Giữ tốc độ động cơ không quá 4000 vòng/phút;</p>
+        <p>6. Tốc độ xe chạy không quá:</p>
+        <p>- 24 km/h đối với hạng B, D</p>
+        <p>- 20 km/h đối với hạng C, E</p>
+        <h3>-Các lỗi bị trừ điểm :</h3>
+        <p>1. Đi không đúng hình củahạng xe thi, bị truất quyền sát hạch;</p>
+        <p>2. Bánh xe đè vào vạch giới hạn hình sát hạch, mỗi lần bị trừ 5 điểm;</p>
+        <p>3. Bánh xe đè vào vạch giới hạn hình sát hạch, cứ quá 05 giây bị trừ 05 điểm;</p>
+        <p>4. Ghép xe không đúng vị trí quy định (toàn bộ thân xe nằm trong khu vực ghép xe nhưng không có tín hiệu báo
+            kết thúc), bị trừ 05 điểm;</p>
+        <p>5. Chưa ghép được xe vào nơi đỗ (khi kết thúc bài sát hạch, còn một phần thân xe nằm ngoài khu vực ghép xe),
+            bị truất quyền sát hạch;</p>
+        <p>6. Thời gian thực hiện bài sát hạch, cứ quá 02 phút, bị trừ 05 điểm.</p>
+        <p>7. Lái xe lên vỉa hè bị truất quyền sát hạch;</p>
+        <p>8. Xử lý tình huống không hợp lý gây tai nạn, bị truất quyền sát hạch;</p>
+        <p>9. Xe bị chết máy, mỗi lần bị trừ 05 điểm;</p>
+        <p>10. Để tốc độ động cơ quá 4000 vòng/phút, mỗi lần bị trừ 05 điểm;</p>
+        <p>11. Xe quá tốc độ quy định, cứ 03 giây bị trừ 01 điểm.</p>
+        <p>12. Tổng thời gian đến bài sát hạch đang thực hiện quá quy định, cứ 03 giây bị trừ 01 điểm;</p>
+        <p>13. Điểm sát hạch dưới 80 điểm, bị truất quyền sát hạch.</p>
+
+        <a href="#tableOfContents">Về đầu trang</a>
+
+        <h3><a name="bai8">Bài 8: Tạm dừng ở chỗ có đường sắt đi qua</a></h3>
+        <h3>- Các bước thực hiện :</h3>
+        <p>1.Dừng xe để khoảng cách từ hình chiếu thanh cản phía trước của xe xuống mặt đường đến vạch dừng (Khoảng cách
+            A) không quá 500mm;</p>
+        <p>2.Lái xe đến bài sát hạch tiếp theo.</p>
+        <h3>- Yêu cầu thực hiện :</h3>
+        <p>1.Dừng xe cách vạch dừng quy định không quá 500mm;</p>
+        <p>2.Giữ động cơ hoạt động liên tục;</p>
+        <p>3.Giữ tốc độ động cơ không quá 4000 vòng/phút;</p>
+        <p>4.Lái xe theo quy tắc giao thông đường bộ;</p>
+        <p>5.Tốc độ xe chạy không quá:</p>
+        <p>-24 km/h đối với hạng B, D</p>
+        <p>-20 km/h đối với hạng C, E</p>
+        <h3>- Các lỗi bị trừ điểm :</h3>
+        <p>1.Không dừng xe ở vạch dừng quy định, bị trừ 05 điểm;</p>
+        <p>2.Dừng xe chưa đến vạch dừng quy định (A > 500mm), bị trừ 05 điểm;</p>
+        <p>3.Dừng xe quá vạch dừng quy định, bị trừ 05 điểm.</p>
+        <p>4.Lái xe lên vỉa hè bị truất quyền sát hạch;</p>
+        <p>5.Xử lý tình huống không hợp lý gây tai nạn, bị truất quyền sát hạch;</p>
+        <p>6.Xe bị chết máy, mỗi lần bị trừ 05 điểm;</p>
+        <p>7.Để tốc độ động cơ quá 4000 vòng/phút, mỗi lần bị trừ 05 điểm;</p>
+        <p>8.Xe quá tốc độ quy định, cứ 03 giây bị trừ 01 điểm.</p>
+        <p>9.Tổng thời gian đến bài sát hạch đang thực hiện quá quy định, cứ 03 giây bị trừ 01 điểm;</p>
+        <p>10.Điểm sát hạch dưới 80 điểm, bị truất quyền sát hạch.</p>
+
+        <a href="#tableOfContents">Về đầu trang</a>
+
+        <h3><a name="bai9">Bài 9: Thay đổi số trên đường bằng</a></h3>
+        <h3>- Các bước thực hiện :</h3>
+        <p>1.Trên quãng đường 25m kể từ khi bắt đầu vào bài sát hạch, phải thay đổi số và tốc độ như sau:</p>
+        <p>a)Đối với xe hạng B: từ số 1 lên số 2 và trên 24km/h;</p>
+        <p>b)Đối với xe hạng D: từ số 2 lên số 3 và trên 24km/h;</p>
+        <p>c)Đối với xe hạng C, E:từsố 2 lên số 3 và trên 20km/h;</p>
+        <p>2.Trên quãng đường 25m còn lại của bài sát hạch phải thay đổi số và tốc độ ngược lại.</p>
+        <p>3.Lái xe đến bài sát hạch tiếp theo.</p>
+        <h3>- Yêu cầu thực hiện :</h3>
+        <p>1.Trên quãng đường 25m kể từ khi bắt đầu vào bài sát hạch, phải thay đổi số và tốc độ như sau:</p>
+        <p>a)Đối với xe hạng B: từ số 1 lên số 2 và trên 24km/h;</p>
+        <p>b)Đối với xe hạng D: từ số 2 lên số 3 và trên 24km/h</p>
+        <p>c)Đối với xe hạngC, E: từ số 2 lên số 3 và trên 20km/h;</p>
+        <p>2.Trên quãng đường 25m còn lại của bài sát hạch phải thay đổi số và tốc độ ngược lại.</p>
+        <p>3.Hoàn thành bài sát hạch trong thời gian 2 phút.</p>
+        <p>4.Lái xe theo quy tắc giao thông đường bộ;</p>
+        <p>5.Giữ động cơ hoạt động liên tục;</p>
+        <p>6.Giữ tốc độ động cơ không quá 4000 vòng/phút;</p>
+        <h3>- Các lỗi bị trừ điểm :</h3>
+        <p>1. Không thay đổi số theo quy định, bị trừ 05 điểm;</p>
+        <p>2. Không thay đổi tốc độ theo quy định, bị trừ 05 điểm;</p>
+        <p>3. Không thay đổi đúng số và đúng tốc độ quy định, bị trừ 05 điểm;</p>
+        <p>4. Thời gian thực hiện bài sát hạch, cứ quá 02 phút, bị trừ 05 điểm.</p>
+        <p>5. Lái xe lên vỉa hè bị truất quyền sát hạch;</p>
+        <p>6. Xử lý tình huống không hợp lý gây tai nạn, bị truất quyền sát hạch;</p>
+        <p>7. Xe bị chết máy, mỗi lần bị trừ 05 điểm;</p>
+        <p>8. Để tốc độ động cơ quá 4000 vòng/phút, mỗi lần bị trừ 05 điểm;</p>
+        <p>9. Tổng thời gian đến bài sát hạch đang thực hiện quá quy định, cứ 03 giây bị trừ 01 điểm;</p>
+        <p>10. Điểm sát hạch dưới 80 điểm, bị truất quyền sát hạch.</p>
+
+        <a href="#tableOfContents">Về đầu trang</a>
+
+        <h3><a name="bai10">Bài 10: Kết thúc</a></h3>
+        <h3>- Các bước thực hiện :</h3>
+        <p>1. Bật đèn xi nhan phải khi xe qua vạch kết thúc;</p>
+        <p>2. Lái xe qua vạch kết thúc và dừng xe.</p>
+        <h3>- Yêu cầu thực hiện :</h3>
+        <p>1. Bật đèn xi nhan phải khi xe qua vạch kết thúc;</p>
+        <p>2. Lái xe qua vạch kết thúc;</p>
+        <p>3. Giữ tốc độ động cơ không quá 4000 vòng/phút;</p>
+        <p>4. Giữ động cơ hoạt động liên tục;</p>
+        <p>5. Tốc độ xe chạy không quá:</p>
+        <p>- 24 km/h đối với hạng B, D</p>
+        <p>- 20 km/h đối vớihạng C, E;</p>
+        <h3>- Các lỗi bị trừ điểm:</h3>
+        <p>1. Không qua vạch kết thúc, bị truất quyền sát hạch;</p>
+        <p>2. Xử lý tình huống không hợp lý gây tai nạn, bị truất quyền sát hạch;</p>
+        <p>3. Lái xe lên vỉa hè bị truất quyền sát hạch;</p>
+        <p>4. Điểm sát hạch dưới 80 điểm, bị truất quyền sát hạch.</p>
+        <p>5. Khi xe qua vạch kết thúc:</p>
+        <p>a) Không bật đèn xi nhan phải, bị trừ 05 điểm;</p>
+        <p>b) Xe bị chết máy, mỗi lần bị trừ 05 điểm;</p>
+        <p>c) Tốc độ động cơ quá 4000 vòng/phút, mỗi lần bị trừ 05 điểm;</p>
+        <p>d) Lái xe quá tốc độ quy định, cứ 03 giây bị trừ 01 điểm.</p>
+        <p>đ) Tổng thời gian thực hiện các bài sát hạch quá quy định, cứ 03 giây bị trừ 01 điểm;</p>
+
+
+        <a href="#tableOfContents">Về đầu trang</a>
+    
+        <h3><a name="bai13">TÌNH HUỐNG NGUY HIỂM: </a></h3>
+        <p>Trong sân sát hạch, ngoài khu vực các bài sát hạch, thí sinh sẽ gặp tình huống nguy hiểm, tình huống này xuất
+            hiện ngẫu nhiên, bất ngờ. Kể từ khi có tín hiệu tình huống nguy hiểm ( tiếng loa báo hiệu nguy hiểm và đèn
+            đỏ bật sáng, nếu không phanh dừng xe trong thời gian 3 giây thì bị trừ 10 điểm, khi hết báo hiệu tình huống
+            nguy hiểm, nếu không ấn nút tắt tình huống nguy hiểm trên xe trong thời gian 5 giây bị trừ 10 điểm, nếu
+            không thực hiện thao tác trên bị trừ 10 điểm.</p>
+        <i>Lưu ý : Sẽ có 03 điểm tình huống bất ngờ nhưng chỉ xuất hiện 01 lần đối với mỗi lượt thi, Khi nào nhìn thấy
+            đèn chữ “D” nhấp nháy màu xanh tức là chuẩn bị tới điểm có tình huống bất ngờ.</i>
+        <br />
+        <br />
+        <a href="#tableOfContents">Về đầu trang</a>
+    </div>
 </body>
+
 </html>`;
 export default html;
