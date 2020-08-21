@@ -140,6 +140,8 @@ Thời gian làm bài: 15 phút.
 
 cd android && ./gradlew assembleRelease
 
+./gradlew bundleRelease
+
 
 source $HOME/.bash_profile;    
 

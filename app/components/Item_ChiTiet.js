@@ -25,7 +25,7 @@ const _renderCheckbox = (props) => {
   return (
     <CheckBox
       iconLeft
-      title={title}
+      title={`${index}. ${title}`}
       checkedIcon={
         showDapAn && checkQuestion !== right_answer && right_answer !== index
           ? 'times-circle'
@@ -67,10 +67,8 @@ const Item_ChiTiet = (props) => {
     selected_answer_tmp,
   } = props;
 
-
   let selected_answer = item?.selected_answer ?? 0;
   selected_answer = selected_answer_tmp ? selected_answer_tmp : selected_answer;
-
 
   const right_answer = item.right_answer;
 
@@ -125,7 +123,7 @@ const Item_ChiTiet = (props) => {
           />
         )}
         <Text style={{fontWeight: 'bold', color: '#2e7d32', flex: 1}}>
-          {item.content}
+          {`${item.content}`}
         </Text>
       </View>
       {item.image_file.length > 2 && (

@@ -326,13 +326,14 @@ const Setting_Screen = () => {
               onPress={() => {
                 kethucBaiThi();
               }}>
-              <Icon
+              {/* <Icon
                 name="check"
                 color="white"
                 underlayColor="#00000000"
                 size={22}
                 style={{padding: 10}}
-              />
+              /> */}
+              <Text style={{color: 'white', fontSize: 15}}>Kết thúc</Text>
             </TouchableOpacity>
           </View>
         }
